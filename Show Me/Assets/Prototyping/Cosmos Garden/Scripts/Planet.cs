@@ -57,6 +57,14 @@ namespace CosmosGarden
             sound.Play();
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent<PitchFood>(out var food))
+            {
+                food.Consumed(this);
+            }
+        }
+
         private void OnGUI()
         {
             if (GUI.Button(new Rect(25,0,150,50), "Increase Pitch"))

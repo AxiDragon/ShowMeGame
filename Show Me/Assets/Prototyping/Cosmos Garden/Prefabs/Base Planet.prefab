@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4172462098783966614}
   - component: {fileID: 509444624906577380}
   - component: {fileID: 3903285379734253347}
+  - component: {fileID: 8201860585685874805}
   m_Layer: 0
   m_Name: Base Planet
   m_TagString: Untagged
@@ -94,10 +95,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4172462098783966613}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &509444624906577380
 AudioSource:
@@ -212,3 +213,19 @@ MonoBehaviour:
   highPitch: {fileID: 2100000, guid: ab2e5764a3aa66644955de5494c8194f, type: 2}
   maxPitch: 4
   minPitch: 0.4
+--- !u!54 &8201860585685874805
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172462098783966613}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

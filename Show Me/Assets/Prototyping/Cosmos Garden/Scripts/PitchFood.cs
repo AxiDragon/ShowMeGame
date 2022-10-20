@@ -16,22 +16,20 @@ namespace CosmosGarden
 
         void Update()
         {
-
+            //Planet closestPlanet = GetClosestPlanet(out float distance);
+            //if (distance < consumeDistance && closestPlanet != null)
+            //{
+            //    closestPlanet.Pitch += pitchOffset;
+            //    closestPlanet.transform.localScale
+            //    Destroy(gameObject);
+            //}
         }
 
-        private void OnMouseDown()
+        public void Consumed(Planet consumer)
         {
-            ModifyPlanet();
-        }
-
-        private void ModifyPlanet()
-        {
-            Planet closestPlanet = GetClosestPlanet();
-            if (closestPlanet != null)
-            {
-                closestPlanet.sound.pitch += pitchOffset;
-                Destroy(gameObject);
-            }
+            consumer.Pitch += pitchOffset;
+            consumer.transform.localScale *= 1.1f;
+            Destroy(gameObject);
         }
 
         private Planet GetClosestPlanet()
@@ -49,6 +47,29 @@ namespace CosmosGarden
             }
 
             return cl;
+        }
+
+        private Planet GetClosestPlanet(out float distance)
+        {
+            distance = Mathf.Infinity;
+            Planet cl = null;
+            foreach (Planet p in FindObjectsOfType<Planet>())
+            {
+                float d = (transform.position - p.transform.position).magnitude;
+                if (d < distance)
+                {
+                    distance = d;
+                    cl = p;
+                }
+            }
+
+            return cl;
+        }
+
+        private void OnDrawGizmos()
+        {
+            //Gizmos.color = Color.yellow;
+            //Gizmos.DrawWireSphere(transform.position, consumeDistance);
         }
     }
 }
