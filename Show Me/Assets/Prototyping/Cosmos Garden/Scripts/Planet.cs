@@ -59,7 +59,7 @@ namespace CosmosGarden
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<PitchFood>(out var food))
+            if (other.TryGetComponent<Food>(out var food))
             {
                 food.Consumed(this);
             }

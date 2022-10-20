@@ -6,16 +6,9 @@ namespace CosmosGarden
 {
     public class Food : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        public virtual void Consumed(Planet consumer)
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            print("omnomnom");
         }
     }
 }

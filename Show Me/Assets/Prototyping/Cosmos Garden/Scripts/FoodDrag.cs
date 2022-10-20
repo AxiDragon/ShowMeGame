@@ -8,7 +8,7 @@ namespace CosmosGarden
     public class FoodDrag : MonoBehaviour
     {
         [SerializeField] LayerMask planeMask;
-        PitchFood currentFood = null;
+        Food currentFood = null;
 
         void Update()
         {
@@ -29,14 +29,14 @@ namespace CosmosGarden
                 currentFood.transform.position = pos;
         }
 
-        private PitchFood GetFood()
+        private Food GetFood()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.TryGetComponent<PitchFood>(out var food))
+                if (hit.collider.TryGetComponent<Food>(out var food))
                     return food;
             }
 
