@@ -32,13 +32,13 @@ namespace BicycleSurfer
             input.y = Input.GetAxis("Vertical");
             if (CheckGrounded())
             {
-                airTime -= Time.deltaTime;
-                airTime = Mathf.Max(0f, airTime);
+                airTime -= Time.deltaTime * 2f;
             }
             else
             {
                 airTime += Time.deltaTime;
             }
+            airTime = Mathf.Clamp(airTime, 0f, 6f);
         }
 
         private void LateUpdate()
