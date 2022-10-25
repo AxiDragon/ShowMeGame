@@ -71,7 +71,6 @@ namespace GeweerhousePrototype
                     continue;
 
                 float dis = (transform.position - ap.transform.position).magnitude;
-                print(dis);
 
                 if (dis < snapDistance)
                     Snap(ap);
@@ -82,7 +81,6 @@ namespace GeweerhousePrototype
         {
             snappedToPoint = ap;
             snapped = true;
-            Debug.LogWarning("Snapped!");
         }
 
         private void OnDrawGizmos()
