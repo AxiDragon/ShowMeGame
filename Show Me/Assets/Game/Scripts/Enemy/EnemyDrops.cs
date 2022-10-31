@@ -6,21 +6,46 @@ namespace Gunbloem
 {
     public class EnemyDrops : MonoBehaviour
     {
-        public float dropChance = .2f;
+        [SerializeField] EnemyDropTable dropTable;
 
         public void DropItem()
         {
-            if (Random.value > dropChance)
+            if (Random.value > dropTable.overallDropChance)
                 return;
 
-            int item = GetDrop();
+            GameObject drop = GetDrop();
 
-            print($"Dropped a spectacular {item}!");
+            Instantiate(drop, transform.position, Quaternion.identity);
         }
 
-        private int GetDrop()
+        private GameObject GetDrop()
         {
-            return Random.Range(0, 9);
+            DropList dropList = GetDropList();
+            int random = Random.Range(0, dropList.droppables.Length);
+
+            return dropList.droppables[random];
+        }
+
+        private DropList GetDropList()
+        {
+            float total = 0f;
+
+            foreach (DropList dl in dropTable.drops)
+            {
+                total += dl.chance;
+            }
+
+            float random = Random.Range(0f, total);
+            total = 0f;
+
+            foreach (DropList dl in dropTable.drops)
+            {
+                total += dl.chance;
+                if (random < total)
+                    return dl;
+            }
+
+            return new DropList();
         }
     }
 }

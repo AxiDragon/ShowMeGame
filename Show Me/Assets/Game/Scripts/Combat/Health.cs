@@ -6,10 +6,10 @@ namespace Gunbloem
 {
     public class Health : MonoBehaviour
     {
-        public int health;
-        internal int maxHealth;
+        public int health = 5;
+        [HideInInspector] public int maxHealth;
 
-        private void Awake()
+        private void Start()
         {
             maxHealth = health;
         }
