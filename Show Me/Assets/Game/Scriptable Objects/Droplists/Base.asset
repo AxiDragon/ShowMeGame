@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a993ab4ebcbe1947a3876714a0a5f63, type: 3}
+  m_Name: Base
+  m_EditorClassIdentifier: 
+  overallDropChance: 0.2
+  drops:
+  - name: Type Drops
+    chance: 0.6
+    droppables:
+    - {fileID: 7566544422641859403, guid: ad1b2fcc4fc05944b80619b79b96fea0, type: 3}
+    - {fileID: 7566544422641859403, guid: d556235cf4dc92e4eac193846035a399, type: 3}
+  - name: Random Drops
+    chance: 0.2
+    droppables:
+    - {fileID: 5281162807422388649, guid: 883a184fcabaebb4c97a740f6560dc90, type: 3}
+    - {fileID: 5281162807422388649, guid: 7cdadfc18dc21c249a493ed7140f8e12, type: 3}
+  - name: Special Drops
+    chance: 0.2
+    droppables:
+    - {fileID: 9109167317776789824, guid: 4e3168a5ce64cb34697b5de0c2885f90, type: 3}
+    - {fileID: 9109167317776789824, guid: 4e3168a5ce64cb34697b5de0c2885f90, type: 3}
