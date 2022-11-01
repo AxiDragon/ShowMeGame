@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6685980599263103391
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Wa'er
+  m_Shader: {fileID: -6465566751694194690, guid: 49b3d87fbf583a74ab7be6ccf8f8ac0e, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Vector1_24e79976bfa64f73bf61eed6145e9746: 7.5
+    - Vector1_69a45f34f63c402f9002eef52582a83a: 0.8
+    - Vector1_97ce966873504122b890a83bfbcb26fd: 5
+    - Vector1_9a04d817ead64f3896872127ec3e8dd1: 0
+    - Vector1_a56591a54e1e42cd991f1f9ee9332862: 0.8
+    - Vector1_c5a46b9fce5a4f98a43989d3286f1f6b: 7.5
+    - Vector1_f425bc3cdda14b179e27d6a76ee6dd13: 0.25
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - Color_6916048b75334191bf5714bbb647a196: {r: 0.004024717, g: 0.27467737, b: 0.27467737, a: 0.4862745}
+    - Color_74159e8ccbbd425fb01366072e324ff2: {r: 0.15085436, g: 0.4245283, b: 0.4245283, a: 0.4862745}
+    - Color_b62a22abce304fa8add4d85f970f48d4: {r: 0.003921569, g: 0.27450982, b: 0.27450982, a: 0.4862745}
+  m_BuildTextureStacks: []
