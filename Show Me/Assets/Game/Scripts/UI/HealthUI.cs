@@ -11,16 +11,18 @@ namespace Gunbloem
         [HideInInspector] public TextMeshProUGUI healthText;
         [HideInInspector] public Slider healthSlider;
         public Transform heart;
+        private Transform cam;
 
         private void Awake()
         {
             healthText = heart.GetComponentInChildren<TextMeshProUGUI>();
             healthSlider = heart.GetComponentInChildren<Slider>();
+            cam = GetComponentInChildren<Camera>().transform;
         }
 
         void LateUpdate()
         {
-            heart.LookAt(Camera.main.transform.position);
+            heart.LookAt(cam.position);
         }
     }
 }
