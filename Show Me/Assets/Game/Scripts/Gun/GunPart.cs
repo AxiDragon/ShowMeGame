@@ -1,21 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gunbloem
 {
     public class GunPart : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        [Header("Stats")]
+        public float power = 1f;
+        public float impact = 1f;
+        public float fireRate = 5f;
+        public float speed = -0.1f;
+        [Header("Other")]
+        public Image uiAppearance;
     }
 }
