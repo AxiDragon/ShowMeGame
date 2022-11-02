@@ -8,8 +8,8 @@ namespace Gunbloem
     public class GunPart : MonoBehaviour
     {
         [Header("Stats")]
-        public float power = 1f;
-        public float impact = 1f;
+        public float power = 1;
+        public float impact = 1;
         public float fireRate = 5f;
         public float speed = -0.1f;
         [Header("Other")]
