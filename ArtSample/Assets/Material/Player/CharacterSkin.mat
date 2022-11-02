@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TreeWobble
+  m_Name: CharacterSkin
   m_Shader: {fileID: -6465566751694194690, guid: 7155b3f04c1dc7345a12b2c847fa22d4, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_0dcfc228be3140f2811cf00408e64280:
-        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: 44d483a7ce66667489579627bd7e5c77, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_52bb18d89a20452aa2ba45b172078840:
@@ -59,22 +59,22 @@ Material:
     - Vector1_dc79406616554abebf1c259bff01ca29: 15
     - Vector1_f54f53ec686a4b27b66943d4d2e8d8c2: 10
     - _Fresnel: 0
-    - _InverseFresnel: 1
+    - _InverseFresnel: 0
     - _PatternedShading: 0
     - _Posterized_Shading: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShadPatScale: 6
+    - _ShadPatScale: 2.41
     - _ShadingCutoff: 0.95
     - _ShadingOpacity: 0.5
     - _Wobble: 1
-    - _WobbleRange: 0.45
+    - _WobbleRange: 0.1
     - _WobleSpeed: 0
     m_Colors:
     - Color_72ce03f6eb294788bd0a3bb83d2f3a0a: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Colour: {r: 0.4339623, g: 0.4339623, b: 0.1501127, a: 0}
-    - _ShadingColour: {r: 0.8117647, g: 0.22539738, b: 0.16470589, a: 0}
+    - _Colour: {r: 0.21698111, g: 0.20244588, b: 0.060727403, a: 0}
+    - _ShadingColour: {r: 0.3018868, g: 0.018986559, b: 0.27720165, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6919866497294256334
 MonoBehaviour:

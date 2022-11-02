@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TreeWobble
+  m_Name: Moustache
   m_Shader: {fileID: -6465566751694194690, guid: 7155b3f04c1dc7345a12b2c847fa22d4, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -68,13 +68,13 @@ Material:
     - _ShadingCutoff: 0.95
     - _ShadingOpacity: 0.5
     - _Wobble: 1
-    - _WobbleRange: 0.45
+    - _WobbleRange: 0.21
     - _WobleSpeed: 0
     m_Colors:
     - Color_72ce03f6eb294788bd0a3bb83d2f3a0a: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Colour: {r: 0.4339623, g: 0.4339623, b: 0.1501127, a: 0}
-    - _ShadingColour: {r: 0.8117647, g: 0.22539738, b: 0.16470589, a: 0}
+    - _Colour: {r: 0.09433961, g: 0.0870305, b: 0.0548831, a: 0}
+    - _ShadingColour: {r: 0.52530456, g: 0.024504516, b: 0.5566038, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6919866497294256334
 MonoBehaviour:
