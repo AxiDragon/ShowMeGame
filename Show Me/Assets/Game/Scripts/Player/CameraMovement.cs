@@ -12,14 +12,14 @@ namespace Gunbloem
         [SerializeField] Transform cameraPivot;
         [HideInInspector] public float scrollTarget;
         [SerializeField] float zoomAdjustSpeed = 5f;
-        [SerializeField] float rotateAdjustSpeed = 5f;
+        //[SerializeField] float rotateAdjustSpeed = 5f;
         [SerializeField] float minZoom = 1f;
         [SerializeField] float maxZoom = 35f;
         [SerializeField] float topClamp = -90f;
         [SerializeField] float bottomClamp = 15f;
         Transform cameraTarget;
         float xRotationTarget = 0f;
-        float yRotationTarget = 0f;
+        //float yRotationTarget = 0f;
 
         void Awake()
         {
