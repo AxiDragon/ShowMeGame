@@ -1,25 +1,45 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Harvest : MonoBehaviour
+namespace Gunbloem
 {
-    [SerializeField] private GameObject plantPrefab;
-    public static bool inRangeOfPlant;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Harvest : MonoBehaviour
     {
-        inRangeOfPlant = false;
-    }
+        [SerializeField] private float plantRange = 5f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Z) && inRangeOfPlant == false)
+        public void Plant(GunSeed seed)
         {
-            GameObject plantedPot = Instantiate(plantPrefab, gameObject.transform.position - new Vector3(0,1.5f,0), Quaternion.Euler(90,0,0));
-            //plantedPot.GetComponent<GeweerhousePrototype.SeedPot>().plantedSeed();
+            Vector3 pos = GetPlantingPosition();
+            GunSeed plantedSeed = Instantiate(seed, pos, Quaternion.identity);
+        }
+
+        private Vector3 GetPlantingPosition()
+        {
+            Vector3 plantingPosition = transform.position;
+
+            foreach (Collider c in Physics.OverlapSphere(transform.position, plantRange))
+            {
+                if (c.TryGetComponent<ProtectionTarget>(out var _))
+                {
+                    plantingPosition = GetClosestPointOutOfRange(c.transform.position);
+                }
+            }
+
+            return plantingPosition;
+        }
+
+        private Vector3 GetClosestPointOutOfRange(Vector3 position)
+        {
+            Vector3 dir = (transform.position - position).normalized;
+            return position + dir * plantRange;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, plantRange);
         }
     }
 }

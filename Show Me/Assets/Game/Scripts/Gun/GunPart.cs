@@ -13,6 +13,6 @@ namespace Gunbloem
         public float fireRate = 5f;
         public float speed = -0.1f;
         [Header("Other")]
-        public Image uiAppearance;
+        public Sprite UIAppearance;
     }
 }

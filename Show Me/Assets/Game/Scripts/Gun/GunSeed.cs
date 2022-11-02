@@ -6,13 +6,13 @@ namespace Gunbloem
 {
     public class GunSeed : MonoBehaviour
     {
-        // Start is called before the first frame update
+        [HideInInspector] public float plantRange = 5f;
+
         void Start()
         {
 
         }
 
-        // Update is called once per frame
         void Update()
         {
 

@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce60f05cbcdd44418851dcb5c49cf43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantPrefab: {fileID: 738678276017343729, guid: 12dd3e424072b754ca4f85511478c11e, type: 3}
+  plantPrefab: {fileID: 4718439749825155969, guid: 4634fdc4da5efb9468fbeb56240092ff, type: 3}
 --- !u!114 &6196730749059965612
 MonoBehaviour:
   m_ObjectHideFlags: 0
