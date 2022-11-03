@@ -17,17 +17,7 @@ namespace Gunbloem
         public float maxFireRate = 5f;
         public float maxSpeed = -0.1f;
         [Header("Other")]
-        public Sprite UIAppearance;
+        public Sprite sprite;
         [HideInInspector] public float plantRange = 5f;
-
-        void Start()
-        {
-
-        }
-
-        void Update()
-        {
-
-        }
     }
 }

@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemUI : MonoBehaviour
+namespace Gunbloem
 {
-    public Image image;
-    internal bool selected;
-
-    public virtual void Select()
+    public class ItemUI : MonoBehaviour
     {
-        selected = !selected;
-        image.color = selected ? Color.red : Color.green;
+        internal bool selected;
+        public Image image;
+        internal ToolTipTrigger trigger;
+
+        private void Awake()
+        {
+            trigger = GetComponent<ToolTipTrigger>();
+        }
+
+        public virtual void Select()
+        {
+            selected = !selected;
+            image.color = selected ? Color.red : Color.green;
+        }
     }
 }
