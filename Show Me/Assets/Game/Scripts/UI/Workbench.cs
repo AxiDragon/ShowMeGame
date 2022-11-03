@@ -12,13 +12,11 @@ namespace Gunbloem
         public void OnPointerEnter(PointerEventData eventData)
         {
             mouseOver = true;
-            print("Entered Workbench");
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             mouseOver = false;
-            print("Left Workbench");
         }
     }
 }
