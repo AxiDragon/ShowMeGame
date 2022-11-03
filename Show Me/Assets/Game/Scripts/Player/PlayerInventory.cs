@@ -45,18 +45,18 @@ namespace Gunbloem
             GenerateMenuContent(plantMenuContent, seeds);
         }
 
-        private void GenerateMenuContent(GameObject plantMenuContent, List<GunSeed> seeds)
+        private void GenerateMenuContent(GameObject menuContent, List<GunSeed> seeds)
         {
-            ClearChildren(plantMenuContent);
+            ClearChildren(menuContent);
             List<SeedItemUI> content = GenerateContent(seeds);
-            PlaceContent(plantMenuContent, content);
+            PlaceContent(menuContent, content);
         }
 
-        private void PlaceContent(GameObject plantMenuContent, List<SeedItemUI> content)
+        private void PlaceContent(GameObject menuContent, List<SeedItemUI> content)
         {
             for (int i = 0; i < content.Count; i++)
             {
-
+                content[i].transform.parent = menuContent.transform;
             }
         }
 
