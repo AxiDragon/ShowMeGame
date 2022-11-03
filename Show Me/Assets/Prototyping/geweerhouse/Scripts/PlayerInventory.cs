@@ -6,6 +6,7 @@ namespace GeweerhousePrototype
 {
     public class PlayerInventory : MonoBehaviour
     {
+        [Header("PROTOTYPE REMNANT, DON'T USE")]
         public List<BulletSeed> seeds = new List<BulletSeed>();
         public List<GunPart> gunParts = new List<GunPart>();
         private int money = 5;

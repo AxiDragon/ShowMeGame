@@ -9,38 +9,49 @@ namespace Gunbloem
     {
         [SerializeField] float rotateSensitivity = 100f;
         [SerializeField] float zoomSensitivity = 100f;
-        [SerializeField] Transform cameraPivot;
+        [SerializeField] Transform cameraXPivot;
+        [SerializeField] Transform cameraYPivot;
         [HideInInspector] public float scrollTarget;
         [SerializeField] float zoomAdjustSpeed = 5f;
-        [SerializeField] float rotateAdjustSpeed = 5f;
+        //[SerializeField] float rotateAdjustSpeed = 5f;
         [SerializeField] float minZoom = 1f;
         [SerializeField] float maxZoom = 35f;
         [SerializeField] float topClamp = -90f;
         [SerializeField] float bottomClamp = 15f;
         Transform cameraTarget;
         float xRotationTarget = 0f;
-        float yRotationTarget = 0f;
+        private bool controllable = true;
+        Vector3 offset;
+
+        //float yRotationTarget = 0f;
 
         void Awake()
         {
-            cameraTarget = cameraPivot.GetChild(0);
+            cameraTarget = cameraXPivot.GetChild(0);
             scrollTarget = cameraTarget.localPosition.z;
             Cursor.lockState = CursorLockMode.Locked;
+            offset = cameraYPivot.position - transform.position;
+            cameraYPivot.parent = null;
         }
 
         public void RotateCamera(InputAction.CallbackContext callback)
         {
+            if (!controllable)
+                return; 
             Vector2 rotation = callback.ReadValue<Vector2>() * (rotateSensitivity / 1000f);
 
             xRotationTarget -= rotation.y;
             xRotationTarget = Mathf.Clamp(xRotationTarget, bottomClamp, topClamp);
 
-            transform.Rotate(Vector3.up * rotation.x);
-            cameraPivot.localRotation = Quaternion.Euler(xRotationTarget, 0f, 0f);
+            cameraYPivot.Rotate(Vector3.up * rotation.x);
+            cameraXPivot.localRotation = Quaternion.Euler(xRotationTarget, 0f, 0f);
         }
 
         public void UpdateOffset(InputAction.CallbackContext callback)
         {
+            if (!controllable)
+                return; 
+            
             float value = callback.ReadValue<float>();
             scrollTarget += value * zoomSensitivity / 1000f;
             scrollTarget = Mathf.Clamp(scrollTarget, -maxZoom, -minZoom);
@@ -48,6 +59,9 @@ namespace Gunbloem
 
         private void FixedUpdate()
         {
+            if (!controllable)
+                return;
+
             float scrollDiff = scrollTarget - cameraTarget.localPosition.z;
             cameraTarget.localPosition += new Vector3(0f, 0f, scrollDiff * zoomAdjustSpeed / 100f);
 
@@ -58,6 +72,16 @@ namespace Gunbloem
             //print(pRot);
             //cameraPivot.localRotation = Quaternion.Euler((xDiff * zoomAdjustSpeed / 100f) + pRot.x, 0f, 0f);
             //print(Quaternion.Euler((xDiff * rotateAdjustSpeed / 100f) + pRot.x, 0f, 0f));
+        }
+
+        private void LateUpdate()
+        {
+            cameraYPivot.position = transform.position + offset;
+        }
+
+        public void SetEnabled(bool enabled)
+        {
+            controllable = enabled;
         }
     }
 }
