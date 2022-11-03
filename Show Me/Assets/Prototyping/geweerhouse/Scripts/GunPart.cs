@@ -7,6 +7,7 @@ namespace GeweerhousePrototype
 {
     public class GunPart : MonoBehaviour
     {
+        [Header("PROTOTYPE REMNANT, DON'T USE")]
         List<SnappingPoint> snappingPoints = new List<SnappingPoint>();
         [SerializeField] Transform snapParent;
         public GunStats stats;

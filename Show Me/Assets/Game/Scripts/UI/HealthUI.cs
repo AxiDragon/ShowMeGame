@@ -17,7 +17,7 @@ namespace Gunbloem
         {
             healthText = heart.GetComponentInChildren<TextMeshProUGUI>();
             healthSlider = heart.GetComponentInChildren<Slider>();
-            cam = GetComponentInChildren<Camera>().transform;
+            cam = Camera.main.transform;
         }
 
         void LateUpdate()

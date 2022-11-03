@@ -1,3 +1,4 @@
+using Gunbloem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace GeweerhousePrototype
             stalkStartPos = stalk.position;
         }
 
+        
         public void PlantSeed(BulletSeed seed)
         {
             plantedSeed = seed;
@@ -57,5 +59,21 @@ namespace GeweerhousePrototype
             plantedSeed = null;
             Destroy(gunFruit.gameObject);
         }
+
+        //private void OnTriggerStay(Collider other)
+        //{
+        //    if (other.GetComponent<Harvest>())
+        //    {
+        //        Debug.Log("in range");
+        //        Harvest.inRangeOfPlant = true;
+        //    }
+        //}
+        //private void OnTriggerExit(Collider other)
+        //{
+        //    if (other.GetComponent<Harvest>())
+        //    {
+        //        Harvest.inRangeOfPlant = false;
+        //    }
+        //}
     }
 }

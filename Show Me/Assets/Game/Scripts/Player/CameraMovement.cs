@@ -12,14 +12,16 @@ namespace Gunbloem
         [SerializeField] Transform cameraPivot;
         [HideInInspector] public float scrollTarget;
         [SerializeField] float zoomAdjustSpeed = 5f;
-        [SerializeField] float rotateAdjustSpeed = 5f;
+        //[SerializeField] float rotateAdjustSpeed = 5f;
         [SerializeField] float minZoom = 1f;
         [SerializeField] float maxZoom = 35f;
         [SerializeField] float topClamp = -90f;
         [SerializeField] float bottomClamp = 15f;
         Transform cameraTarget;
         float xRotationTarget = 0f;
-        float yRotationTarget = 0f;
+        private bool controllable = true;
+
+        //float yRotationTarget = 0f;
 
         void Awake()
         {
@@ -30,6 +32,8 @@ namespace Gunbloem
 
         public void RotateCamera(InputAction.CallbackContext callback)
         {
+            if (!controllable)
+                return; 
             Vector2 rotation = callback.ReadValue<Vector2>() * (rotateSensitivity / 1000f);
 
             xRotationTarget -= rotation.y;
@@ -41,6 +45,9 @@ namespace Gunbloem
 
         public void UpdateOffset(InputAction.CallbackContext callback)
         {
+            if (!controllable)
+                return; 
+            
             float value = callback.ReadValue<float>();
             scrollTarget += value * zoomSensitivity / 1000f;
             scrollTarget = Mathf.Clamp(scrollTarget, -maxZoom, -minZoom);
@@ -48,6 +55,9 @@ namespace Gunbloem
 
         private void FixedUpdate()
         {
+            if (!controllable)
+                return;
+
             float scrollDiff = scrollTarget - cameraTarget.localPosition.z;
             cameraTarget.localPosition += new Vector3(0f, 0f, scrollDiff * zoomAdjustSpeed / 100f);
 
@@ -58,6 +68,11 @@ namespace Gunbloem
             //print(pRot);
             //cameraPivot.localRotation = Quaternion.Euler((xDiff * zoomAdjustSpeed / 100f) + pRot.x, 0f, 0f);
             //print(Quaternion.Euler((xDiff * rotateAdjustSpeed / 100f) + pRot.x, 0f, 0f));
+        }
+
+        public void SetEnabled(bool enabled)
+        {
+            controllable = enabled;
         }
     }
 }
