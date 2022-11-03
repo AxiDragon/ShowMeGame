@@ -18,6 +18,7 @@ namespace Gunbloem
         public override void Select()
         {
             base.Select();
+            print("Selected!");
         }
     }
 }

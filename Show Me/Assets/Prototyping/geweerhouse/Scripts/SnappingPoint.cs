@@ -49,7 +49,7 @@ namespace GeweerhousePrototype
                 case Side.Bottom:
                     return Side.Left;
                 default:
-                    throw new NotImplementedException("No Side Specified, somehow");
+                    throw new NotImplementedException("No side specified, somehow");
             }
         }
 

@@ -9,17 +9,19 @@ namespace Gunbloem
     {
         internal bool selected;
         public Image image;
+        internal Image bg;
         internal ToolTipTrigger trigger;
 
         private void Awake()
         {
+            bg = GetComponent<Image>();
             trigger = GetComponent<ToolTipTrigger>();
         }
 
         public virtual void Select()
         {
             selected = !selected;
-            image.color = selected ? Color.red : Color.green;
+            bg.color = selected ? Color.gray : Color.white;
         }
     }
 }

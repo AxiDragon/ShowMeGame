@@ -95,6 +95,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6041816855970789798, guid: db54b9479937c1842a55aa74f7089b9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041816855970789798, guid: db54b9479937c1842a55aa74f7089b9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041816855970789798, guid: db54b9479937c1842a55aa74f7089b9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 97607561737943287}
+    - target: {fileID: 6041816855970789798, guid: db54b9479937c1842a55aa74f7089b9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041816855970789798, guid: db54b9479937c1842a55aa74f7089b9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041816855970789798, guid: db54b9479937c1842a55aa74f7089b9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Gunbloem.SeedItemUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041816855970789798, guid: db54b9479937c1842a55aa74f7089b9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db54b9479937c1842a55aa74f7089b9a, type: 3}
 --- !u!1 &490261742732009473 stripped
