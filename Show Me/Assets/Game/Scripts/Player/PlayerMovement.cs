@@ -11,6 +11,8 @@ namespace Gunbloem
         [SerializeField] float acceleration = 5f;
         [SerializeField] float maxSpeed = 5f;
         [SerializeField] float decelerationRate = 5f;
+        [SerializeField] float rotationSpeed = 5f;
+        [SerializeField] Transform pivot;
         Rigidbody rb;
 
         Vector3 moveVector;
@@ -28,21 +30,43 @@ namespace Gunbloem
 
         private void UpdateMovement()
         {
-            moveVector = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * new Vector3(input.x, 0f, input.y);
+            moveVector = Quaternion.AngleAxis(pivot.eulerAngles.y, Vector3.up) * new Vector3(input.x, 0f, input.y);
+
+            if (!Mathf.Approximately(moveVector.magnitude, 0f))
+            {
+                UpdateRotation();
+            }
 
             if (Mathf.Approximately(moveVector.magnitude, 0f))
             {
-                Vector3 deceleration = new Vector3(rb.velocity.x, 0f, rb.velocity.z)
-                    * -decelerationRate;
-                rb.AddForce(deceleration);
+                Decelerate();
             }
             else
             {
-                Vector3 moveForce = moveVector * acceleration;
-                rb.AddForce(moveForce, ForceMode.Impulse);
+                Move();
             }
 
             ClampVelocity();
+        }
+
+        private void Move()
+        {
+            Vector3 moveForce = moveVector * acceleration;
+            rb.AddForce(moveForce, ForceMode.Impulse);
+        }
+
+        private void Decelerate()
+        {
+            Vector3 deceleration = new Vector3(rb.velocity.x, 0f, rb.velocity.z)
+                * -decelerationRate;
+            rb.AddForce(deceleration);
+        }
+
+        private void UpdateRotation()
+        {
+            Quaternion towards = Quaternion.Euler(transform.eulerAngles.x, pivot.eulerAngles.y, transform.eulerAngles.z);
+            Quaternion rot = Quaternion.RotateTowards(transform.rotation, towards, rotationSpeed * Time.deltaTime);
+            transform.rotation = rot;
         }
 
         private void ClampVelocity()
