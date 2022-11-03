@@ -6,7 +6,7 @@ namespace Gunbloem
 {
     public class PartItemUI : ItemUI
     {
-        public GunPart part;
+        [HideInInspector] public GunPart part;
 
         private void Start()
         {

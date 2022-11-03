@@ -441,6 +441,11 @@ MonoBehaviour:
   seeds: []
   parts: []
   inventoryUI: {fileID: 8877445320246567318}
+  plantMenuContent: {fileID: 82652465010638195}
+  breedMenuContent: {fileID: 4778554227710287865}
+  craftMenuContent: {fileID: 4778554227651823077}
+  seedUI: {fileID: 97607561737943287, guid: 9af0041247240fa46953db132f69247b, type: 3}
+  partUI: {fileID: 6035171055268262175, guid: d53b2a7e002d3cc4896f6cf25acc5759, type: 3}
   inventoryOpen:
     m_PersistentCalls:
       m_Calls:
@@ -456,6 +461,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6196730749059965612}
+        m_TargetAssemblyTypeName: Gunbloem.PlayerInventory, Assembly-CSharp
+        m_MethodName: GenerateInventory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   inventoryClosed:
     m_PersistentCalls:
       m_Calls:
@@ -463,6 +480,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Gunbloem.CameraMovement, Assembly-CSharp
         m_MethodName: SetEnabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 3804455247977423878}
+        m_TargetAssemblyTypeName: Gunbloem.ToolTipSystem, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -762,6 +791,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3815d81d38f1ef74abb86c8e7a4ea731, type: 3}
+--- !u!114 &3804455247977423878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9111432815880476921, guid: 3815d81d38f1ef74abb86c8e7a4ea731, type: 3}
+  m_PrefabInstance: {fileID: 5385861205090123007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35216f4fff25e0343b0285cb695e26a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8068573921535889265 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2686178377191437198, guid: 3815d81d38f1ef74abb86c8e7a4ea731, type: 3}
@@ -1228,6 +1268,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+--- !u!1 &82652465010638195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6073755264694564726, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+  m_PrefabInstance: {fileID: 6156407226094569989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4778554227651823077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1675099374342049760, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+  m_PrefabInstance: {fileID: 6156407226094569989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4778554227710287865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1675099374803162620, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+  m_PrefabInstance: {fileID: 6156407226094569989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8877445320246567314 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3340816306189626263, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}

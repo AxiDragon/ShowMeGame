@@ -7,11 +7,11 @@ namespace Gunbloem
 {
     public class ToolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public ToolTipTriggerType type;
-        [Header("If Seed")]
-        public GunSeed seed;
-        [Header("If Part")]
-        public GunPart part;
+        [HideInInspector] public ToolTipTriggerType type;
+        //[Header("If Seed")]
+        [HideInInspector] public GunSeed seed;
+        //[Header("If Part")]
+        [HideInInspector] public GunPart part;
 
         public enum ToolTipTriggerType
         {

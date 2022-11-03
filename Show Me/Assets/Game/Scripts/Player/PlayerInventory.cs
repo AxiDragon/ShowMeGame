@@ -43,6 +43,36 @@ namespace Gunbloem
         public void GenerateInventory()
         {
             GenerateMenuContent(plantMenuContent, seeds);
+            GenerateMenuContent(breedMenuContent, parts);
+            GenerateMenuContent(craftMenuContent, parts);
+        }
+
+        private void GenerateMenuContent(GameObject menuContent, List<GunPart> parts)
+        {
+            ClearChildren(menuContent);
+            List<PartItemUI> content = GenerateContent(parts);
+            PlaceContent(menuContent, content);
+        }
+
+        private void PlaceContent(GameObject menuContent, List<PartItemUI> content)
+        {
+            for (int i = 0; i < content.Count; i++)
+            {
+                content[i].transform.SetParent(menuContent.transform, false);
+            }
+        }
+
+        private List<PartItemUI> GenerateContent(List<GunPart> parts)
+        {
+            List<PartItemUI> items = new List<PartItemUI>();
+            for (int i = 0; i < parts.Count; i++)
+            {
+                PartItemUI item = Instantiate(partUI, transform);
+                item.part = parts[i];
+                items.Add(item);
+            }
+
+            return items;
         }
 
         private void GenerateMenuContent(GameObject menuContent, List<GunSeed> seeds)
@@ -56,7 +86,7 @@ namespace Gunbloem
         {
             for (int i = 0; i < content.Count; i++)
             {
-                content[i].transform.parent = menuContent.transform;
+                content[i].transform.SetParent(menuContent.transform, false);
             }
         }
 
@@ -75,9 +105,9 @@ namespace Gunbloem
 
         private void ClearChildren(GameObject go)
         {
-            for (int i = go.transform.childCount; i > 0; i--)
+            for (int i = go.transform.childCount - 1; i >= 0; i--)
             {
-                Destroy(go.transform.GetChild(i));
+                Destroy(go.transform.GetChild(i).gameObject);
             }
         }
     }

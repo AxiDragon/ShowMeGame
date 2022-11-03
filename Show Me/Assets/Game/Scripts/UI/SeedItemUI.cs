@@ -6,7 +6,7 @@ namespace Gunbloem
 {
     public class SeedItemUI : ItemUI
     {
-        public GunSeed seed;
+        [HideInInspector] public GunSeed seed;
 
         private void Start()
         {
