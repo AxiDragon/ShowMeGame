@@ -25,12 +25,13 @@ namespace Gunbloem
             canvas = GetComponentInParent<Canvas>();
             attachment = GetComponentInChildren<Attachment>();
             originalParent = transform.parent;
-            originalPosition = transform.localPosition;
+            originalPosition = rect.anchoredPosition;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
             sprite.raycastTarget = false;
+            attachment.UnSnap();
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -51,16 +52,20 @@ namespace Gunbloem
         public void SnapBack()
         {
             transform.SetParent(originalParent, false);
-            transform.localPosition = originalPosition;
+            rect.anchoredPosition = originalPosition;
             attachment.benched = false;
         }
 
         public void PlaceOnWorkbench()
         {
-            Vector2 pos = rect.position;
-            transform.SetParent(workbench.transform, false);
-            rect.position = pos;
-            attachment.benched = true;
+            if (!attachment.benched)
+            {
+                Vector2 pos = rect.position;
+                transform.SetParent(workbench.transform, false);
+                rect.position = pos;
+                attachment.benched = true;
+            }
+
             attachment.TrySnap();
         }
     }

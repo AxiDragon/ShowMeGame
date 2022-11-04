@@ -10,25 +10,24 @@ namespace Gunbloem
         public Side side;
         private Side oppSide;
         private Attachment attacher;
-        private Vector3 offset;
-        [HideInInspector] public RectTransform rect;
+        private Vector2 offset;
         [HideInInspector] public AttachmentPoint snappedTo = null;
-        public RectTransform snappedToRect = null;
+        [HideInInspector] public RectTransform rect;
         [HideInInspector] public bool snapped = false;
-        private RectTransform parentRect;
+        private RectTransform par;
 
         private void Awake()
         {
+            par = transform.parent.GetComponent<RectTransform>();
             rect = GetComponent<RectTransform>();
-            parentRect = GetComponentInParent<RectTransform>();
-            offset = rect.position - parentRect.position;
-
             attacher = GetComponentInParent<Attachment>();
         }
-
+        
         private void Start()
         {
             oppSide = GetOppositeSide();
+            offset = par.position - rect.position;
+            print(offset);
         }
 
         private void Update()
@@ -36,7 +35,8 @@ namespace Gunbloem
             if (!snapped)
                 return;
 
-            parentRect.position = snappedToRect.position + offset;
+            //par.position = snappedTo.transform.position - offset;
+            //par.position = snappedTo.transform.position + offset;
         }
 
         private Side GetOppositeSide()
@@ -58,13 +58,12 @@ namespace Gunbloem
 
         public void Snap(AttachmentPoint snapPoint)
         {
-            print("snapping so hard right now");
             snappedTo = snapPoint;
-            snappedToRect = snapPoint.rect;
             snapped = true;
 
+            par.SetParent(snapPoint.transform, false);
+            par.position = (Vector2)snapPoint.rect.position + offset;
             snapPoint.snappedTo = this;
-            snapPoint.snappedToRect = rect;
             snapPoint.snapped = true;
         }
 
@@ -73,11 +72,9 @@ namespace Gunbloem
             if (snapped)
             {
                 snappedTo.snappedTo = null;
-                snappedTo.snappedToRect = null;
                 snappedTo.snapped = false;
 
                 snappedTo = null;
-                snappedToRect = null;
                 snapped = false;
             }
         }
@@ -103,7 +100,7 @@ namespace Gunbloem
 
             foreach (AttachmentPoint ap in aps)
             {
-                float dis = Vector2.Distance(rect.position, ap.rect.position);
+                float dis = Vector3.Distance(rect.position, ap.rect.position);
                 if (dis < closestDistance)
                 {
                     closestDistance = dis;
@@ -112,6 +109,12 @@ namespace Gunbloem
             }
 
             return closestAp;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(transform.position, 10f);
         }
     }
 }

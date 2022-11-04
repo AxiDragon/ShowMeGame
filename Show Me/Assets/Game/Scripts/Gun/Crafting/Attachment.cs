@@ -8,36 +8,52 @@ namespace Gunbloem
     public class Attachment : MonoBehaviour
     {
         [HideInInspector] public List<AttachmentPoint> aps = new List<AttachmentPoint>();
+        [HideInInspector] public Transform bench;
+        [HideInInspector] public RectTransform rect;
         [HideInInspector] public bool benched = false;
 
         void Awake()
         {
             aps = GetComponentsInChildren<AttachmentPoint>().ToList();
+            bench = FindObjectOfType<Workbench>().transform;
+            rect = GetComponent<RectTransform>();
         }
-        
+
         public void TrySnap()
         {
-            print("Trying,,,");
             AttachmentPoint closestSnap = null;
-            AttachmentPoint snappingPoint = null;
+            AttachmentPoint snapToPoint = null;
             float closestDistance = Mathf.Infinity;
 
-            foreach(AttachmentPoint point in aps)
+            foreach (AttachmentPoint point in aps)
             {
-                point.UnSnap();
+                UnSnap();
 
                 AttachmentPoint ap = point.GetClosestOpposite(out float dis);
-                if (ap != null && dis < closestDistance)
+                if (dis < closestDistance && ap != null)
                 {
-                    print("got one?");
-                    closestSnap = point;
-                    snappingPoint = ap;
+                    closestSnap = ap;
+                    snapToPoint = point;
                     closestDistance = dis;
                 }
             }
 
             if (closestSnap != null)
-                closestSnap.Snap(snappingPoint);
+            {
+                snapToPoint.Snap(closestSnap);
+            }
+        }
+
+        public void UnSnap()
+        {
+            foreach (AttachmentPoint point in aps)
+            {
+                point.UnSnap();
+            }
+
+            Vector2 pos = rect.position;
+            transform.SetParent(bench.transform, false);
+            rect.position = pos;
         }
     }
 }
