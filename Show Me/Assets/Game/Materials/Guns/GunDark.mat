@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9182704749158646866
+--- !u!114 &-5198034573241833573
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: lambert12
+  m_Name: GunDark
   m_Shader: {fileID: -6465566751694194690, guid: 7155b3f04c1dc7345a12b2c847fa22d4, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -119,7 +119,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _InverseFresnel: 0
+    - _InverseFresnel: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -146,8 +146,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
-    - _Colour: {r: 0.9245283, g: 0.79079145, b: 0.79079145, a: 0}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadingColour: {r: 0.2495169, g: 0.12459945, b: 0.7075472, a: 0}
+    - _Colour: {r: 0.11320752, g: 0.05197577, b: 0.05197577, a: 0}
+    - _EmissionColor: {r: 0.0753, g: 0.0581, b: 0.0419, a: 1}
+    - _ShadingColour: {r: 0.48272675, g: 0.09411763, b: 0.5568628, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
