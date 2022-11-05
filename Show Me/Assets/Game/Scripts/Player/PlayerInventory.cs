@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Gunbloem
 {
@@ -44,7 +45,14 @@ namespace Gunbloem
         {
             GenerateMenuContent(plantMenuContent, seeds);
             GenerateMenuContent(breedMenuContent, parts);
-            GenerateMenuContent(craftMenuContent, parts);
+            GenerateCraftMenuContent(craftMenuContent, parts);
+        }
+
+        private void GenerateCraftMenuContent(GameObject menuContent, List<GunPart> parts)
+        {
+            ClearChildren(menuContent);
+            List<PartItemUI> content = GenerateCraftContent(parts);
+            PlaceContent(menuContent, content);
         }
 
         private void GenerateMenuContent(GameObject menuContent, List<GunPart> parts)
@@ -60,6 +68,23 @@ namespace Gunbloem
             {
                 content[i].transform.SetParent(menuContent.transform, false);
             }
+        }
+
+        private List<PartItemUI> GenerateCraftContent(List<GunPart> parts)
+        {
+            List<PartItemUI> items = new List<PartItemUI>();
+            for (int i = 0; i < parts.Count; i++)
+            {
+                PartItemUI item = Instantiate(partUI, transform);
+                item.part = parts[i];
+                
+                ClearChildren(item.gameObject);
+                Attachment att = Instantiate(parts[i].attachment, item.transform);
+                item.GetComponent<Button>().enabled = false;
+                items.Add(item);
+            }
+
+            return items;
         }
 
         private List<PartItemUI> GenerateContent(List<GunPart> parts)

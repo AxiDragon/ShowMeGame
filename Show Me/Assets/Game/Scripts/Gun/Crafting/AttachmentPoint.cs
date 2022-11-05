@@ -27,7 +27,6 @@ namespace Gunbloem
         {
             oppSide = GetOppositeSide();
             offset = par.position - rect.position;
-            print(offset);
         }
 
         private void Update()
@@ -91,7 +90,10 @@ namespace Gunbloem
                 foreach (AttachmentPoint ap in a.aps)
                 {
                     if (ap.side == oppSide)
-                        aps.Add(ap);
+                    {
+                        if (ap.transform.childCount <= 0)
+                            aps.Add(ap);
+                    }
                 }
             }
 

@@ -30,6 +30,12 @@ namespace Gunbloem
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (!canvas)
+                canvas = GetComponentInParent<Canvas>();
+
+            if (!workbench)
+                workbench = FindObjectOfType<Workbench>();
+
             sprite.raycastTarget = false;
             attachment.UnSnap();
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,13 @@ namespace Gunbloem
         public float fireRate = 5f;
         public float speed = -0.1f;
         [Header("Other")]
-        public Sprite sprite;
+        [HideInInspector] public Sprite sprite;
+        public Attachment attachment;
+
+        internal Sprite GetSprite()
+        {
+            sprite = attachment.GetComponent<Image>().sprite;
+            return sprite;
+        }
     }
 }

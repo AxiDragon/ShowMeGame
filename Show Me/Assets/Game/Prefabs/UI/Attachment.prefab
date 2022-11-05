@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2587857550135071264}
   - component: {fileID: 2587857550135071267}
   m_Layer: 5
-  m_Name: Draggable
+  m_Name: Attachment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9601ee8dcff83924ea1dc43bcee79be6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aps: []
+  bench: {fileID: 0}
+  rect: {fileID: 0}
   benched: 0
 --- !u!1001 &659923052405284196
 PrefabInstance:
@@ -115,6 +117,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2587857550135071271}
     m_Modifications:
+    - target: {fileID: 3080864833362254648, guid: 97c26e8c5e968ea4a9b833096dbdc439, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 3080864833362254648, guid: 97c26e8c5e968ea4a9b833096dbdc439, type: 3}
       propertyPath: m_Name
       value: TopAttach
@@ -222,6 +228,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2587857550135071271}
     m_Modifications:
     - target: {fileID: 3080864833362254648, guid: 97c26e8c5e968ea4a9b833096dbdc439, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 3080864833362254648, guid: 97c26e8c5e968ea4a9b833096dbdc439, type: 3}
       propertyPath: m_Name
       value: BottomAttach
       objectReference: {fileID: 0}
@@ -328,6 +338,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2587857550135071271}
     m_Modifications:
     - target: {fileID: 3080864833362254648, guid: 97c26e8c5e968ea4a9b833096dbdc439, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 3080864833362254648, guid: 97c26e8c5e968ea4a9b833096dbdc439, type: 3}
       propertyPath: m_Name
       value: RightAttach
       objectReference: {fileID: 0}
@@ -433,6 +447,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2587857550135071271}
     m_Modifications:
+    - target: {fileID: 3080864833362254648, guid: 97c26e8c5e968ea4a9b833096dbdc439, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 3080864833362254648, guid: 97c26e8c5e968ea4a9b833096dbdc439, type: 3}
       propertyPath: m_Name
       value: LeftAttach

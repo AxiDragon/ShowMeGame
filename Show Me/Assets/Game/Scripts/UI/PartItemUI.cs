@@ -12,13 +12,14 @@ namespace Gunbloem
         {
             trigger.part = part;
             trigger.type = ToolTipTrigger.ToolTipTriggerType.Part;
-            image.sprite = part.sprite;
+
+            if (image != null)
+                image.sprite = part.GetSprite();
         }
 
         public override void Select()
         {
             base.Select();
-            print("Selected!");
         }
     }
 }

@@ -11,12 +11,14 @@ namespace Gunbloem
         [HideInInspector] public Transform bench;
         [HideInInspector] public RectTransform rect;
         [HideInInspector] public bool benched = false;
+        [HideInInspector] public GunPart part;
+        private DragDrop drag;
 
         void Awake()
         {
             aps = GetComponentsInChildren<AttachmentPoint>().ToList();
-            bench = FindObjectOfType<Workbench>().transform;
             rect = GetComponent<RectTransform>();
+            drag = GetComponent<DragDrop>();
         }
 
         public void TrySnap()
@@ -39,9 +41,10 @@ namespace Gunbloem
             }
 
             if (closestSnap != null)
-            {
                 snapToPoint.Snap(closestSnap);
-            }
+            else
+                if (bench.childCount > 1)
+                    drag.SnapBack();
         }
 
         public void UnSnap()
@@ -50,6 +53,9 @@ namespace Gunbloem
             {
                 point.UnSnap();
             }
+
+            if (bench == null)
+                bench = FindObjectOfType<Workbench>().transform;
 
             Vector2 pos = rect.position;
             transform.SetParent(bench.transform, false);

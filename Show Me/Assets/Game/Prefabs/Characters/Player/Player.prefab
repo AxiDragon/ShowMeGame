@@ -98,6 +98,37 @@ Transform:
   m_Father: {fileID: 4817172077304917878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5299511197436395551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7493069137458131891}
+  m_Layer: 0
+  m_Name: GunHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7493069137458131891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5299511197436395551}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.685, y: 0.612, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9219213993736700965}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7315218755111539281
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +285,7 @@ MonoBehaviour:
   cameraYPivot: {fileID: 4817172077304917878}
   scrollTarget: 0
   zoomAdjustSpeed: 5
-  minZoom: 3
+  minZoom: 1.5
   maxZoom: 20
   topClamp: 90
   bottomClamp: -15
@@ -484,6 +515,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 3325417408885729743}
+        m_TargetAssemblyTypeName: Gunbloem.Workbench, Assembly-CSharp
+        m_MethodName: ClearWorkbench
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &9084415303557162348
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6747702710789448307, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.396
+      value: 0.948
       objectReference: {fileID: 0}
     - target: {fileID: 6747702710789448307, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1218,6 +1261,10 @@ PrefabInstance:
       propertyPath: part
       value: 
       objectReference: {fileID: 686923154669042106, guid: 3dfe5ae478741ef4294530bca80fa125, type: 3}
+    - target: {fileID: 4156287996692826606, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+      propertyPath: playerHand
+      value: 
+      objectReference: {fileID: 7493069137458131891}
     - target: {fileID: 4471357244087631743, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1353,6 +1400,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6073755264694564726, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
   m_PrefabInstance: {fileID: 6156407226094569989}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3325417408885729743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8883827739565188042, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+  m_PrefabInstance: {fileID: 6156407226094569989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761662ba875567c46945c774dacfe9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4778554227651823077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1675099374342049760, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
