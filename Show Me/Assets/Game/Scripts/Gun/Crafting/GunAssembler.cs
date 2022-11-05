@@ -82,7 +82,7 @@ namespace Gunbloem
             model.transform.parent = playerHand;
             model.transform.localPosition = Vector3.zero;
             model.transform.localRotation = Quaternion.identity;
-            model.transform.localScale = Vector3.one * 1.5f;
+            model.transform.localScale = Vector3.one * 1f;
             OffsetModel(model.transform);
         }
 
@@ -137,8 +137,7 @@ namespace Gunbloem
                     AttachmentPoint ap = parAtt.aps[i];
                     Attachment cAtt = c.GetChild(0).GetComponent<Attachment>();
                     GunPart p = Instantiate(cAtt.part, gunPart);
-                    print(p.name);
-                    ModelAttachmentPoint connectedModAp = GetConnectModelAttachmentPoint(p, ap.snappedTo);
+                    ModelAttachmentPoint connectedModAp = GetConnectModelAttachmentPoint(gunPart.GetComponent<GunPart>(), ap.snappedTo);
                     ModelAttachmentPoint otherConnectedModAp = GetConnectModelAttachmentPoint(p, ap);
                     p.transform.localPosition = otherConnectedModAp.offset - connectedModAp.offset;
                     InstantiateChildren(cAtt, p.transform);
