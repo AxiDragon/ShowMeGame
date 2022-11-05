@@ -30,15 +30,6 @@ namespace Gunbloem
             offset = par.position - rect.position;
         }
 
-        private void Update()
-        {
-            if (!snapped)
-                return;
-
-            //par.position = snappedTo.transform.position - offset;
-            //par.position = snappedTo.transform.position + offset;
-        }
-
         private Side GetOppositeSide()
         {
             switch (side)
@@ -92,7 +83,7 @@ namespace Gunbloem
                 {
                     if (ap.side == oppSide)
                     {
-                        if (ap.transform.childCount <= 0)
+                        if (ap.snappedTo == null)
                             aps.Add(ap);
                     }
                 }

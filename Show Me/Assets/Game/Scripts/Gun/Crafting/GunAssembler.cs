@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 namespace Gunbloem
 {
@@ -30,6 +31,7 @@ namespace Gunbloem
             AssembleGun(usedParts);
             RemoveFromInventory(usedParts);
             bench.ClearWorkbench();
+            gunCrafted?.Invoke();
         }
 
         private void RemoveFromInventory(List<GunPart> usedParts)
@@ -82,34 +84,86 @@ namespace Gunbloem
             model.transform.parent = playerHand;
             model.transform.localPosition = Vector3.zero;
             model.transform.localRotation = Quaternion.identity;
-            model.transform.localScale = Vector3.one * 1f;
-            OffsetModel(model.transform);
+            OffsetModel(model.transform); //not entirely functional but good enough
+            Transform shootTransform = GetShootTransform(model.transform); //doesn't work quite yet either
+        }
+
+        private Transform GetShootTransform(Transform par)
+        {
+            List<GunPart> childGunParts = par.GetComponentsInChildren<GunPart>().ToList();
+            List<Transform> childTransforms = new List<Transform>();
+            Transform shootTransform = par.GetChild(0).transform;
+
+            foreach (GunPart part in childGunParts)
+                childTransforms.Add(part.transform);
+
+            float farthestZ = -Mathf.Infinity;
+            foreach (Transform c in childTransforms)
+            {
+                float zDiff = c.position.z - par.position.z;
+                farthestZ = Mathf.Max(farthestZ, zDiff);
+            }
+
+            List<Transform> rightTransforms = new List<Transform>();
+
+            foreach (Transform c in childTransforms)
+            {
+                if ((c.position.z - par.position.z) == farthestZ)
+                    rightTransforms.Add(c);
+            }
+
+            float highestY = -Mathf.Infinity;
+            foreach (Transform c in rightTransforms)
+            {
+                float yDiff = c.position.y - par.position.y;
+                if (yDiff > highestY)
+                {
+                    highestY = yDiff;
+                    shootTransform = c;
+                }
+            }
+
+            return shootTransform;
         }
 
         private void OffsetModel(Transform par)
         {
-            List<GunPart> childGunParts = par.gameObject.GetComponentsInChildren<GunPart>().ToList();
+            List<GunPart> childGunParts = par.GetComponentsInChildren<GunPart>().ToList();
             List<Transform> childTransforms = new List<Transform>();
+            Transform holdTransform = par.GetChild(0).transform;
 
             foreach(GunPart part in childGunParts)
                 childTransforms.Add(part.transform);
 
             float yOffset = Mathf.Infinity;
-
             foreach(Transform c in childTransforms)
-                yOffset = Mathf.Min(yOffset, c.localPosition.y);
+            {
+                float yDiff = c.position.y - par.position.y;
+                yOffset = Mathf.Min(yOffset, yDiff);
+            }
 
             List<Transform> bottomTransforms = new List<Transform>();
 
             foreach (Transform c in childTransforms)
-                if (c.localPosition.y == yOffset)
+            {
+                if ((c.position.y - par.position.y) == yOffset)
                     bottomTransforms.Add(c);
+            }
 
             float zOffset = Mathf.Infinity;
             foreach (Transform c in bottomTransforms)
-                zOffset = Mathf.Min(yOffset, c.localPosition.z);
+            {
+                float zDiff = c.position.z - par.position.z;
+                if (zDiff < zOffset)
+                {
+                    zOffset = zDiff;
+                    holdTransform = c;
+                }
+            }
 
-            par.GetChild(0).localPosition += new Vector3(0f, -yOffset, -zOffset);
+            Vector3 newPos = -(holdTransform.position - par.position);
+            newPos.x = 0f;
+            par.GetChild(0).localPosition = newPos;
         }
 
         private GameObject AssembleModel(List<GunPart> parts)
