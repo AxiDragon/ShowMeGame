@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using Random = UnityEngine.Random;
 
 namespace Gunbloem
 {
@@ -24,13 +23,9 @@ namespace Gunbloem
         public void CraftGun()
         {
             List<GunPart> usedParts = GetUsedParts();
-            print(usedParts.Count);
 
             if (usedParts.Count <= 0)
-            {
-                Debug.LogWarning("No gun parts found!");
                 return;
-            }
 
             AssembleGun(usedParts);
             RemoveFromInventory(usedParts);
@@ -49,15 +44,11 @@ namespace Gunbloem
 
         private List<GunPart> GetUsedParts()
         {
-            //Looks at the contents of the craft inventory, returning those without a child (therefore being used)
+            List<Attachment> atts = bench.transform.GetComponentsInChildren<Attachment>().ToList();
             List<GunPart> usedParts = new List<GunPart>();
 
-            for (int i = 0; i < craftInventory.childCount; i++)
-            {
-                Transform c = craftInventory.GetChild(i);
-                if (c.childCount <= 0)
-                    usedParts.Add(c.GetComponent<PartItemUI>().part);
-            }
+            for (int i = 0; i < atts.Count; i++)
+                usedParts.Add(atts[i].part);
 
             return usedParts;
         }
@@ -79,6 +70,7 @@ namespace Gunbloem
 
         private void PlaceModelInHand(ref GameObject model)
         {
+
             if (playerHand.childCount > 0)
             {
                 for (int i = playerHand.childCount - 1; i >= 0; i--)
@@ -86,17 +78,86 @@ namespace Gunbloem
                     Destroy(playerHand.GetChild(i).gameObject);
                 }
             }
+
             model.transform.parent = playerHand;
             model.transform.localPosition = Vector3.zero;
             model.transform.localRotation = Quaternion.identity;
-            model.transform.localScale = Vector3.one / 3f;
-            model.GetComponent<MeshRenderer>().material.color = new Color(Random.value, Random.value, Random.value);
+            model.transform.localScale = Vector3.one * 1.5f;
+            OffsetModel(model.transform);
+        }
+
+        private void OffsetModel(Transform par)
+        {
+            List<GunPart> childGunParts = par.gameObject.GetComponentsInChildren<GunPart>().ToList();
+            List<Transform> childTransforms = new List<Transform>();
+
+            foreach(GunPart part in childGunParts)
+                childTransforms.Add(part.transform);
+
+            float yOffset = Mathf.Infinity;
+
+            foreach(Transform c in childTransforms)
+                yOffset = Mathf.Min(yOffset, c.localPosition.y);
+
+            List<Transform> bottomTransforms = new List<Transform>();
+
+            foreach (Transform c in childTransforms)
+                if (c.localPosition.y == yOffset)
+                    bottomTransforms.Add(c);
+
+            float zOffset = Mathf.Infinity;
+            foreach (Transform c in bottomTransforms)
+                zOffset = Mathf.Min(yOffset, c.localPosition.z);
+
+            par.GetChild(0).localPosition += new Vector3(0f, -yOffset, -zOffset);
         }
 
         private GameObject AssembleModel(List<GunPart> parts)
         {
-            //create the actual gun model here
-            return GameObject.CreatePrimitive(PrimitiveType.Cube);
+            GameObject gunParent = new GameObject("Gun");
+            BuildModel(gunParent);
+            return gunParent;
+        }
+
+        private void BuildModel(GameObject gunParent)
+        {
+            Attachment pivotAttachment = bench.transform.GetChild(0).GetComponent<Attachment>();
+            GunPart pivotPart = Instantiate(pivotAttachment.part, gunParent.transform);
+
+            InstantiateChildren(pivotAttachment, pivotPart.transform);
+        }
+
+        private void InstantiateChildren(Attachment parAtt, Transform gunPart)
+        {
+            for (int i = 0; i < parAtt.aps.Count; i++)
+            {
+                Transform c = parAtt.aps[i].transform;
+                if (c.childCount > 0)
+                {
+                    AttachmentPoint ap = parAtt.aps[i];
+                    Attachment cAtt = c.GetChild(0).GetComponent<Attachment>();
+                    GunPart p = Instantiate(cAtt.part, gunPart);
+                    print(p.name);
+                    ModelAttachmentPoint connectedModAp = GetConnectModelAttachmentPoint(p, ap.snappedTo);
+                    ModelAttachmentPoint otherConnectedModAp = GetConnectModelAttachmentPoint(p, ap);
+                    p.transform.localPosition = otherConnectedModAp.offset - connectedModAp.offset;
+                    InstantiateChildren(cAtt, p.transform);
+                }
+            }
+        }
+
+        private ModelAttachmentPoint GetConnectModelAttachmentPoint(GunPart part, AttachmentPoint ap)
+        {
+            foreach (ModelAttachmentPoint modAp in part.GetComponentsInChildren<ModelAttachmentPoint>())
+            {
+                if (modAp.side != ap.snappedTo.side)
+                    continue;
+
+                if (modAp.id == ap.snappedTo.id)
+                    return modAp;
+            }
+
+            return null;
         }
     }
 }

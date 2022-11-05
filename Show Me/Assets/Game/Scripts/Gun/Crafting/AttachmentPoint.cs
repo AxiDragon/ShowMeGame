@@ -9,6 +9,7 @@ namespace Gunbloem
     {
         public Side side;
         private Side oppSide;
+        public int id = 0;
         private Attachment attacher;
         private Vector2 offset;
         [HideInInspector] public AttachmentPoint snappedTo = null;

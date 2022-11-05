@@ -80,6 +80,7 @@ namespace Gunbloem
                 
                 ClearChildren(item.gameObject);
                 Attachment att = Instantiate(parts[i].attachment, item.transform);
+                att.part = parts[i];
                 item.GetComponent<Button>().enabled = false;
                 items.Add(item);
             }

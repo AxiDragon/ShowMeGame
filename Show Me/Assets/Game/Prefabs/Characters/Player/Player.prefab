@@ -304,7 +304,7 @@ MonoBehaviour:
   acceleration: 5
   maxSpeed: 10
   decelerationRate: 5
-  rotationSpeed: 360
+  rotationSpeed: 720
   pivot: {fileID: 4817172077304917878}
 --- !u!114 &5112067978498656731
 MonoBehaviour:
