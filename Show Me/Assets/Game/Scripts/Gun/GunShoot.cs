@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gunbloem 
 {
-    public class Gun : MonoBehaviour
+    public class GunShoot : MonoBehaviour
     {
         public GunStats stats;
         public GameObject gun;

@@ -96,6 +96,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6041816855970789798, guid: db54b9479937c1842a55aa74f7089b9a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041816855970789798, guid: db54b9479937c1842a55aa74f7089b9a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -190,7 +194,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 615044026864329427, guid: f6c66185e88717d458ea3b5cea6871ee, type: 3}
         m_TargetAssemblyTypeName: Gunbloem.PlayerInventory, Assembly-CSharp
-        m_MethodName: PlantSeed
+        m_MethodName: PlantGun
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
