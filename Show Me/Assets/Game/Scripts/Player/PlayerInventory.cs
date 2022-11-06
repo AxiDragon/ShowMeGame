@@ -136,5 +136,15 @@ namespace Gunbloem
                 Destroy(go.transform.GetChild(i).gameObject);
             }
         }
+
+        public void PlantGun() 
+        {
+            Harvest harvest = GetComponent<Harvest>();
+            if(seeds.Count > 0)
+            {
+                harvest.Plant(seeds[0]);
+            }
+        
+        }
     }
 }
