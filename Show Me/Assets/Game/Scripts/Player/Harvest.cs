@@ -9,9 +9,7 @@ namespace Gunbloem
     {
         [SerializeField] private float plantRange;
         [SerializeField] private GameObject potToPlant;
-
         [SerializeField] float growTime = 2f;
-
         [SerializeField] Transform stalk;
 
         Vector3 stalkStartPos;
@@ -20,35 +18,33 @@ namespace Gunbloem
         {
             Vector3 pos = GetPlantingPosition();
             pos.y -= 0.5f;
-
-
-            Debug.Log(pos);
             GunSeed plantedSeed = Instantiate(seed, pos, Quaternion.identity);
             /*GameObject pot = Instantiate(potToPlant, pos, potToPlant.transform.rotation);
 
             stalk.position = pot.transform.position;
             stalkStartPos = stalk.position;*/
-
         }
 
         private Vector3 GetPlantingPosition()
         {
-            Debug.Log(transform.position);
-            Vector3 plantingPosition = this.transform.position;
+            Vector3 plantingPosition = transform.position;
 
-            /*foreach (Collider c in Physics.OverlapSphere(transform.position, plantRange))
+            foreach (Collider c in Physics.OverlapSphere(transform.position, plantRange))
             {
                 if (c.TryGetComponent<ProtectionTarget>(out var _))
                 {
                     plantingPosition = GetClosestPointOutOfRange(c.transform.position);
                 }
-            }*/
+            }
             return plantingPosition;
         }
 
         private Vector3 GetClosestPointOutOfRange(Vector3 position)
         {
-            Vector3 dir = (transform.position - position);
+            Vector3 dir = transform.position - position;
+            dir.y = 0f;
+            dir.Normalize();
+
             return position + dir * plantRange;
         }
 

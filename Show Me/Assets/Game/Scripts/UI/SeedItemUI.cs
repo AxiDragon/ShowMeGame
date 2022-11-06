@@ -18,6 +18,15 @@ namespace Gunbloem
         public override void Select()
         {
             base.Select();
+            PlantSeed();
+        }
+
+        private void PlantSeed()
+        {
+            GetComponentInParent<Harvest>().Plant(seed);
+            PlayerInventory inv = GetComponentInParent<PlayerInventory>();
+            inv.seeds.Remove(seed);
+            inv.InteractInventory();
         }
     }
 }

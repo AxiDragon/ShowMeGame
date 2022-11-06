@@ -8,13 +8,13 @@ namespace Gunbloem
     public class PlayerInteractHandler : MonoBehaviour
     {
         PlayerInventory inventory;
-        GunShoot playerGun;
+        //GunShoot playerGun;
         Harvest playerHarvest;
 
         private void Awake()
         {
             inventory = GetComponent<PlayerInventory>();
-            playerGun = GetComponent<GunShoot>();   
+            //playerGun = GetComponent<GunShoot>();   
         }
 
         public void InteractZ(InputAction.CallbackContext inp)
@@ -35,13 +35,13 @@ namespace Gunbloem
             }
         }
 
-        public void PlayerShoot(InputAction.CallbackContext inp)
-        {
-            if (inp.performed) 
-            {
-                playerGun.Shoot();
+        //public void PlayerShoot(InputAction.CallbackContext inp)
+        //{
+        //    if (inp.performed) 
+        //    {
+        //        playerGun.Shoot();
             
-            }
-        }
+        //    }
+        //}
     }
 }
