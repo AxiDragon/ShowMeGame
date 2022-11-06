@@ -89,9 +89,9 @@ namespace Gunbloem
                 content[i].transform.SetParent(menuContent.transform, false);
             }
         }
-
         private List<SeedItemUI> GenerateContent(List<GunSeed> seeds)
         {
+           
             List<SeedItemUI> items = new List<SeedItemUI>();
             for (int i = 0; i < seeds.Count; i++)
             {
@@ -102,13 +102,22 @@ namespace Gunbloem
 
             return items;
         }
-
         private void ClearChildren(GameObject go)
         {
             for (int i = go.transform.childCount - 1; i >= 0; i--)
             {
                 Destroy(go.transform.GetChild(i).gameObject);
             }
+        }
+
+        public void PlantSeed() 
+        {
+            Debug.Log(seeds.Count);
+
+            Harvest playerHarvest = GetComponent<Harvest>();
+
+            playerHarvest.Plant(seeds[1]);
+            
         }
     }
 }

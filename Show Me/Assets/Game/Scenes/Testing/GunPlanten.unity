@@ -1042,6 +1042,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 304218632871277354, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: potToPlant
+      value: 
+      objectReference: {fileID: 738678276017343729, guid: 12dd3e424072b754ca4f85511478c11e, type: 3}
     - target: {fileID: 326702873436479911, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3898,6 +3902,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8034093084507992132, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034093084507992132, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 68be98f5-35df-4ff3-90d6-8b641322f11b
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034093084507992132, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Player/Shoot[/Mouse/leftButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034093084507992132, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034093084507992132, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034093084507992132, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7315218754545210524}
+    - target: {fileID: 8034093084507992132, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034093084507992132, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034093084507992132, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Gunbloem.PlayerInteractHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034093084507992132, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8064434652080743805, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4392,6 +4436,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+--- !u!1 &7315218754545210519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7315218756176576488, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+  m_PrefabInstance: {fileID: 7315218754545210518}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7315218754545210520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315218754545210519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67989ffcceea15a4c8a3c82e725e22f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 7fc0b946157470f48bbd9ce172849c1d, type: 2}
+  gun: {fileID: 0}
+  bullet: {fileID: 8104033088823643664, guid: e0ec94014fab2134984ade8f55bb7e20, type: 3}
+--- !u!114 &7315218754545210524 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5112067978498656731, guid: 3cc76b9ba696a554cb3afe1b196f89a1, type: 3}
+  m_PrefabInstance: {fileID: 7315218754545210518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315218754545210519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af6e0ffe0606e3478ec661bf632b73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8345070700268369567
 PrefabInstance:
   m_ObjectHideFlags: 0

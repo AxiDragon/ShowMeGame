@@ -10,6 +10,7 @@ namespace Gunbloem
         internal bool selected;
         public Image image;
         internal ToolTipTrigger trigger;
+        internal ItemToSelect selectable;
 
         private void Awake()
         {
@@ -18,6 +19,7 @@ namespace Gunbloem
 
         public virtual void Select()
         {
+            Debug.Log("selected");
             selected = !selected;
             image.color = selected ? Color.red : Color.green;
         }
