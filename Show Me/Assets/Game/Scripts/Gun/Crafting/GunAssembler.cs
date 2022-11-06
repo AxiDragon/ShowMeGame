@@ -10,14 +10,17 @@ namespace Gunbloem
     public class GunAssembler : MonoBehaviour
     {
         private PlayerInventory inventory;
+        private PlayerFighter fighter;
         private Workbench bench;
         [SerializeField] private Transform playerHand;
         [SerializeField] private Transform craftInventory;
         [SerializeField] private UnityEvent gunCrafted;
+        [SerializeField] private Bullet bullet;
 
         private void Awake()
         {
             inventory = GetComponentInParent<PlayerInventory>();
+            fighter = inventory.GetComponent<PlayerFighter>();
             bench = GetComponent<Workbench>();
         }
 
@@ -58,21 +61,23 @@ namespace Gunbloem
         private void AssembleGun(List<GunPart> parts)
         {
             GameObject model = AssembleModel(parts);
-            Destroy(model.GetComponent<Collider>());
             Gun gun = model.AddComponent<Gun>();
 
             float div = Mathf.Sqrt(parts.Count);
             gun.power = (from part in parts select part.power).Sum() / div;
             gun.fireRate = (from part in parts select part.fireRate).Sum() / div;
             gun.impact = (from part in parts select part.impact).Sum() / div;
-            gun.speed = (from part in parts select part.speed).Sum() / div;
-            
+            gun.speed = 10f - ((from part in parts select part.speed).Sum() - (parts.Count * 10));
+            gun.speed = Mathf.Clamp(gun.speed, 3f, 25f);
+            gun.bullet = bullet;
+
             PlaceModelInHand(ref model);
+            gun.shootTransform = GetShootTransform(model.transform); //doesn't work quite yet either
+            fighter.UpdateGun(gun);
         }
 
         private void PlaceModelInHand(ref GameObject model)
         {
-
             if (playerHand.childCount > 0)
             {
                 for (int i = playerHand.childCount - 1; i >= 0; i--)
@@ -85,7 +90,6 @@ namespace Gunbloem
             model.transform.localPosition = Vector3.zero;
             model.transform.localRotation = Quaternion.identity;
             OffsetModel(model.transform); //not entirely functional but good enough
-            Transform shootTransform = GetShootTransform(model.transform); //doesn't work quite yet either
         }
 
         private Transform GetShootTransform(Transform par)
@@ -100,7 +104,7 @@ namespace Gunbloem
             float farthestZ = -Mathf.Infinity;
             foreach (Transform c in childTransforms)
             {
-                float zDiff = c.position.z - par.position.z;
+                float zDiff = c.position.z;
                 farthestZ = Mathf.Max(farthestZ, zDiff);
             }
 
@@ -108,7 +112,7 @@ namespace Gunbloem
 
             foreach (Transform c in childTransforms)
             {
-                if ((c.position.z - par.position.z) == farthestZ)
+                if ((c.position.z) == farthestZ)
                     rightTransforms.Add(c);
             }
 

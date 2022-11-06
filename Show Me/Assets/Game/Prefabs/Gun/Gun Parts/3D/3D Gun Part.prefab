@@ -52,7 +52,7 @@ MonoBehaviour:
   power: 3
   impact: 2
   fireRate: 3
-  speed: 1
+  speed: 9
   sprite: {fileID: 0}
   attachment: {fileID: 0}
 --- !u!1 &4049582758129819367

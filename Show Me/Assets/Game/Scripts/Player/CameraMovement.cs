@@ -18,7 +18,7 @@ namespace Gunbloem
         [SerializeField] float maxZoom = 35f;
         [SerializeField] float topClamp = -90f;
         [SerializeField] float bottomClamp = 15f;
-        Transform cameraTarget;
+        [HideInInspector] public Transform cameraTarget;
         float xRotationTarget = 0f;
         private bool controllable = true;
         Vector3 offset;

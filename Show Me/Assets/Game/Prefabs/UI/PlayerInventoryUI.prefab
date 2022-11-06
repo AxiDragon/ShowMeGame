@@ -179,7 +179,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1feb9b601a4fda42912a18be12d1948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHand: {fileID: 0}
   craftInventory: {fileID: 6193735436756894739}
+  gunCrafted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Gunbloem.PlayerFighter, Assembly-CSharp
+        m_MethodName: UpdateGun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  bullet: {fileID: 4825303441131294004, guid: ebaf46fe09c07f640bdcc7d3f7018940, type: 3}
 --- !u!1 &3340816306023374784
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,8 +8,9 @@ namespace Gunbloem
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] float acceleration = 5f;
-        [SerializeField] float maxSpeed = 5f;
+        public float speed = 5f;
+        private float startSpeed;
+        private float maxSpeed = 5f;
         [SerializeField] float decelerationRate = 5f;
         [SerializeField] float rotationSpeed = 5f;
         [SerializeField] Transform pivot;
@@ -21,6 +22,7 @@ namespace Gunbloem
         void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            startSpeed = speed;
         }
 
         private void FixedUpdate()
@@ -32,10 +34,8 @@ namespace Gunbloem
         {
             moveVector = Quaternion.AngleAxis(transform.rotation.eulerAngles.y, Vector3.up) * new Vector3(input.x, 0f, input.y);
 
-            if (!Mathf.Approximately(moveVector.magnitude, 0f))
-            {
+            //if (!Mathf.Approximately(moveVector.magnitude, 0f))
                 UpdateRotation();
-            }
 
             if (Mathf.Approximately(moveVector.magnitude, 0f))
             {
@@ -51,7 +51,7 @@ namespace Gunbloem
 
         private void Move()
         {
-            Vector3 moveForce = moveVector * acceleration;
+            Vector3 moveForce = moveVector * speed;
             rb.AddForce(moveForce, ForceMode.Impulse);
         }
 
@@ -79,6 +79,12 @@ namespace Gunbloem
         public void Move(InputAction.CallbackContext callback)
         {
             input = callback.action.ReadValue<Vector2>().normalized;
+        }
+
+        public void UpdateSpeed(float statValue)
+        {
+            speed = startSpeed * (statValue / 10f);
+            maxSpeed = speed;
         }
     }
 }

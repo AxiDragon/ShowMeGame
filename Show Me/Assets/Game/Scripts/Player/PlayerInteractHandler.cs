@@ -8,13 +8,11 @@ namespace Gunbloem
     public class PlayerInteractHandler : MonoBehaviour
     {
         PlayerInventory inventory;
-        Gun playerGun;
         Harvest playerHarvest;
 
         private void Awake()
         {
             inventory = GetComponent<PlayerInventory>();
-            playerGun = GetComponent<Gun>();   
         }
 
         public void InteractZ(InputAction.CallbackContext inp)
@@ -32,15 +30,6 @@ namespace Gunbloem
             if (inp.performed)
             {
                 //Check if near harvestable PT (In another script)
-            }
-        }
-
-        public void PlayerShoot(InputAction.CallbackContext inp)
-        {
-            if (inp.performed) 
-            {
-                playerGun.Shoot();
-            
             }
         }
     }

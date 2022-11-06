@@ -137,9 +137,8 @@ GameObject:
   - component: {fileID: 3605399337859395643}
   - component: {fileID: 6435340111962190677}
   - component: {fileID: 615044026864329427}
-  - component: {fileID: 6734612626058035313}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player Test
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,6 +415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantRange: 3
   potToPlant: {fileID: 738678276017343729, guid: 12dd3e424072b754ca4f85511478c11e, type: 3}
+  growTime: 2
+  stalk: {fileID: 0}
 --- !u!114 &615044026864329427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,21 +496,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &6734612626058035313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4103560132902862743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67989ffcceea15a4c8a3c82e725e22f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 7fc0b946157470f48bbd9ce172849c1d, type: 2}
-  gun: {fileID: 0}
-  bullet: {fileID: 8104033088823643664, guid: e0ec94014fab2134984ade8f55bb7e20, type: 3}
 --- !u!1 &4103560133986882094
 GameObject:
   m_ObjectHideFlags: 0
