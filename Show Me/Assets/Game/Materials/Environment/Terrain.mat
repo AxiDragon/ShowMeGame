@@ -63,7 +63,7 @@ Material:
     - Vector1_dc79406616554abebf1c259bff01ca29: 15
     - Vector1_f54f53ec686a4b27b66943d4d2e8d8c2: 10
     - _Contrast: 0
-    - _Fresnel: 1
+    - _Fresnel: 0
     - _InverseFresnel: 1
     - _PatternedShading: 0
     - _Posterized_Shading: 0
@@ -71,17 +71,21 @@ Material:
     - _QueueOffset: 0
     - _Screen_Position_Wobble: 0
     - _ShadPatScale: 6
-    - _ShadingCutoff: 0.95
-    - _ShadingOpacity: 0.5
+    - _ShadingCutoff: 0.481
+    - _ShadingOpacity: 0.478
     - _TestValue: -0.64
     - _Wobble: 1
-    - _WobbleRange: 0
-    - _Wobble_Zoom_Scaling: 1
-    - _WobleSpeed: 0
+    - _WobbleRange: 0.08
+    - _Wobble_Zoom_Scaling: 0
+    - _WobleSpeed: 4
     m_Colors:
     - Color_72ce03f6eb294788bd0a3bb83d2f3a0a: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _Colour: {r: 1, g: 1, b: 1, a: 0}
+    - _GroundColor: {r: 0.895, g: 0.58874726, b: 0.519995, a: 0}
+    - _HighColor: {r: 0.8862745, g: 0.5568628, b: 0.49411765, a: 0}
+    - _MiddleColor: {r: 0.8, g: 0.38039216, b: 0.45882353, a: 0}
+    - _PeakColor: {r: 0.5176471, g: 0.2627451, b: 0.38823533, a: 0}
     - _ShadingColour: {r: 0.8117647, g: 0.25762007, b: 0.16470589, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5331530805990301333
