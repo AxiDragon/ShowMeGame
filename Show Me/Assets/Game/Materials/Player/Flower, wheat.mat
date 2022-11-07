@@ -56,7 +56,7 @@ Material:
     m_Floats:
     - Boolean_1e7e4e3c868445de8b7bf555847e9817: 1
     - Vector1_727b0857b94246eabb2f78d4c2b9a33b: 4
-    - Vector1_dc79406616554abebf1c259bff01ca29: 15
+    - Vector1_dc79406616554abebf1c259bff01ca29: 5.66
     - Vector1_f54f53ec686a4b27b66943d4d2e8d8c2: 10
     - _Fresnel: 0
     - _InverseFresnel: 1
@@ -64,12 +64,14 @@ Material:
     - _Posterized_Shading: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Screen_Position_Wobble: 0
     - _ShadPatScale: 6
     - _ShadingCutoff: 0.95
     - _ShadingOpacity: 0.5
     - _Wobble: 1
-    - _WobbleRange: 0.1
-    - _WobleSpeed: 0
+    - _WobbleRange: 0.05
+    - _Wobble_Zoom_Scaling: 0
+    - _WobleSpeed: 4
     m_Colors:
     - Color_72ce03f6eb294788bd0a3bb83d2f3a0a: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 0}

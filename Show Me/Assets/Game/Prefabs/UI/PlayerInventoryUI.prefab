@@ -183,20 +183,9 @@ MonoBehaviour:
   craftInventory: {fileID: 6193735436756894739}
   gunCrafted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Gunbloem.PlayerFighter, Assembly-CSharp
-        m_MethodName: UpdateGun
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   bullet: {fileID: 4825303441131294004, guid: ebaf46fe09c07f640bdcc7d3f7018940, type: 3}
+  shootEffect: {fileID: 8250752682429945301, guid: 7e3990994b4fc494aa2d5efdc8fbdf37, type: 3}
 --- !u!1 &3340816306023374784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5104318662042429290, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_text
-      value: craft gun?
+      value: craft gun
       objectReference: {fileID: 0}
     - target: {fileID: 6114103337718473206, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1045,7 +1034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6193735435786990045, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6547324512712408353, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1077,7 +1066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6969915806578159758, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7155567400759095301, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3007,7 +2996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5104318662042429290, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_text
-      value: plant?
+      value: plant
       objectReference: {fileID: 0}
     - target: {fileID: 5149300534614238896, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_AnchorMax.y

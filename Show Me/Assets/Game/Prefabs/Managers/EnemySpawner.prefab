@@ -48,7 +48,7 @@ MonoBehaviour:
   startCredits: 35
   waveTime: 10
   waveTimeIncremental: 2
-  graceTime: 7
+  graceTime: 2
   waveMultiplier: 1.1
   minimumSpawnRange: 12
   maximumSpawnRange: 20

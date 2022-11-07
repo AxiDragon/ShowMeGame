@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Eye
+  m_Shader: {fileID: -6465566751694194690, guid: 7155b3f04c1dc7345a12b2c847fa22d4, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_0dcfc228be3140f2811cf00408e64280:
+        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_52bb18d89a20452aa2ba45b172078840:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_8abfcec5ca4a42508610658a19da62bb_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 44d483a7ce66667489579627bd7e5c77, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadowPattern:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Boolean_1e7e4e3c868445de8b7bf555847e9817: 1
+    - Vector1_727b0857b94246eabb2f78d4c2b9a33b: 4
+    - Vector1_dc79406616554abebf1c259bff01ca29: 5.66
+    - Vector1_f54f53ec686a4b27b66943d4d2e8d8c2: 10
+    - _Fresnel: 0
+    - _InverseFresnel: 1
+    - _PatternedShading: 0
+    - _Posterized_Shading: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Screen_Position_Wobble: 0
+    - _ShadPatScale: 6
+    - _ShadingCutoff: 0.95
+    - _ShadingOpacity: 0.5
+    - _Wobble: 1
+    - _WobbleRange: 0.05
+    - _Wobble_Zoom_Scaling: 0
+    - _WobleSpeed: 4
+    m_Colors:
+    - Color_72ce03f6eb294788bd0a3bb83d2f3a0a: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Colour: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadingColour: {r: 0.05660379, g: 0.0035599805, b: 0.018974906, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &6919866497294256334
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5

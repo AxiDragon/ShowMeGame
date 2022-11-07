@@ -909,7 +909,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.7924528, g: 0.53608763, b: 0.48145247, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6602,10 +6602,6 @@ PrefabInstance:
       propertyPath: playerHand
       value: 
       objectReference: {fileID: 7493069137458131891}
-    - target: {fileID: 4156287996692826606, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
-      propertyPath: gunCrafted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 8213141549326732226}
     - target: {fileID: 4419946198948074173, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
       propertyPath: m_Layer
       value: 3
