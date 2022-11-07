@@ -61,6 +61,6 @@ namespace Gunbloem
             //attackAudio.Play();
             attack.Attack(controller.target);
             timeSinceLastAttack = 0f;
-        }
+        } 
     }
 }

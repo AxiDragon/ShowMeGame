@@ -11,6 +11,7 @@ namespace Gunbloem
     {
         NavMeshAgent agent;
         EnemyController controller;
+        bool stunned = false;
 
         void Awake()
         {
@@ -20,7 +21,22 @@ namespace Gunbloem
 
         void Update()
         {
-            agent.SetDestination(controller.target.transform.position);
+            if (!stunned)
+                agent.SetDestination(controller.target.transform.position);
+        }
+
+        public void Stun(float time)
+        {
+            StartCoroutine(StunCoroutine(time));
+        }
+
+        private IEnumerator StunCoroutine(float time)
+        {
+            stunned = true;
+            agent.enabled = false;
+            yield return new WaitForSeconds(time);
+            stunned = false;
+            agent.enabled = true;
         }
     }
 }

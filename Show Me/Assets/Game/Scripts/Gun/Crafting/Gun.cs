@@ -19,9 +19,7 @@ namespace Gunbloem
         public Transform shootTransform;
         private CameraMovement camMove;
         [HideInInspector] private Transform cam;
-
-        public ParticleSystem shootEffect;
-
+        
         private float shootingSpeed = 250f;
 
         float gunTimer;
@@ -37,6 +35,7 @@ namespace Gunbloem
         void Update()
         {
             gunTimer += Time.deltaTime;
+            transform.LookAt(GetShootTarget());
         }
 
         public void Shoot()
@@ -54,7 +53,7 @@ namespace Gunbloem
             bulletRb.velocity = GetBulletDirection(shootTarget) * shootingSpeed;
             bullet.transform.LookAt(bullet.transform.position + bulletRb.velocity);
 
-            Instantiate(shootEffect, shootTransform);
+            PlayerParticleManager.ShootEffect(shootTransform);
         }
 
         private Vector3 GetBulletDirection(Vector3 shootTarget)

@@ -16,8 +16,7 @@ namespace Gunbloem
         [SerializeField] private Transform craftInventory;
         [SerializeField] private UnityEvent gunCrafted;
         [SerializeField] private Bullet bullet;
-        [SerializeField] private ParticleSystem shootEffect;
-
+        
         private void Awake()
         {
             inventory = GetComponentInParent<PlayerInventory>();
@@ -68,10 +67,9 @@ namespace Gunbloem
             gun.power = (from part in parts select part.power).Sum() / div;
             gun.fireRate = (from part in parts select part.fireRate).Sum() / div;
             gun.impact = (from part in parts select part.impact).Sum() / div;
-            gun.speed = 10f - ((from part in parts select part.speed).Sum() - (parts.Count * 10));
+            gun.speed = 10f - ((parts.Count * 10) - (from part in parts select part.speed).Sum());
             gun.speed = Mathf.Clamp(gun.speed, 3f, 25f);
             gun.bullet = bullet;
-            gun.shootEffect = shootEffect;
 
             PlaceModelInHand(ref model);
             gun.shootTransform = GetShootTransform(model.transform); //doesn't work quite yet either

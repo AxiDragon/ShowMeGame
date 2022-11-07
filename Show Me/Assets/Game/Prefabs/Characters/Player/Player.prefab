@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 8213141549326732226}
   - component: {fileID: 8034093084507992132}
   - component: {fileID: 2458917660404686607}
+  - component: {fileID: 7438987800121216960}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -335,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  flashTime: 0.3
   maxHealth: 0
   regenTime: 20
   pulseTime: 1
@@ -654,6 +656,20 @@ MonoBehaviour:
   potToPlant: {fileID: 738678276017343729, guid: 12dd3e424072b754ca4f85511478c11e, type: 3}
   growTime: 2
   stalk: {fileID: 0}
+--- !u!114 &7438987800121216960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315218756176576488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71cb0a7767e27c542aa262c2037a696e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootEffect: {fileID: 8250752682429945301, guid: 7e3990994b4fc494aa2d5efdc8fbdf37, type: 3}
+  hitEffect: {fileID: 7221908289940487574, guid: 3e2f08400c1595d49855ad27539b9f2f, type: 3}
 --- !u!1 &7613878778971438125
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,7 +925,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.7924528, g: 0.53608763, b: 0.48145247, a: 1}
+      maxColor: {r: 0.9056604, g: 0.74297935, b: 0.64421505, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6602,6 +6618,34 @@ PrefabInstance:
       propertyPath: playerHand
       value: 
       objectReference: {fileID: 7493069137458131891}
+    - target: {fileID: 4156287996692826606, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+      propertyPath: gunCrafted.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156287996692826606, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+      propertyPath: gunCrafted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156287996692826606, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+      propertyPath: gunCrafted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5885339614066683867}
+    - target: {fileID: 4156287996692826606, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+      propertyPath: gunCrafted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156287996692826606, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+      propertyPath: gunCrafted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateRenderers
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156287996692826606, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+      propertyPath: gunCrafted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Gunbloem.PlayerHealth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156287996692826606, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+      propertyPath: gunCrafted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4419946198948074173, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
       propertyPath: m_Layer
       value: 3

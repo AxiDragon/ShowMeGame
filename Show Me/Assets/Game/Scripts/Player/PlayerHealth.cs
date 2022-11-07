@@ -52,5 +52,10 @@ namespace Gunbloem
             yield return new WaitForSeconds(time);
             healthUI.heart.LeanScale(baseScale, time).setEaseInBounce();
         }
+
+        public void UpdateRenderers()
+        {
+            rends = GetComponentsInChildren<Renderer>();
+        }
     }
 }
