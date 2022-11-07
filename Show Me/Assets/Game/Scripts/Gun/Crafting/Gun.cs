@@ -22,7 +22,7 @@ namespace Gunbloem
 
         public ParticleSystem shootEffect;
 
-        private float shootingSpeed = 150f;
+        private float shootingSpeed = 250f;
 
         float gunTimer;
 
