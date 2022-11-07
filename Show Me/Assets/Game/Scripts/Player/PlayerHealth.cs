@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -61,7 +62,14 @@ namespace Gunbloem
 
         public void UpdateRenderers()
         {
-            rends = GetComponentsInChildren<Renderer>();
+            List<Renderer> rendList = GetComponentsInChildren<Renderer>().ToList();
+            for (int i = rendList.Count - 1; i >= 0; i--)
+            {
+                if (rendList[i].TryGetComponent<ParticleSystem>(out var _))
+                    rendList.RemoveAt(i);
+            }
+
+            rends = rendList.ToArray();
         }
     }
 }

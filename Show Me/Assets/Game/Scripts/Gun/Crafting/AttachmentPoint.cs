@@ -22,6 +22,7 @@ namespace Gunbloem
         [Header("Don't Change These!")]
         [SerializeField] private Sprite attachmentCircle;
         [SerializeField] private Sprite attachmentInset;
+        [SerializeField] private Sprite rotatedAttachmentInset;
 
         private void Awake()
         {
@@ -49,8 +50,7 @@ namespace Gunbloem
                     attachImage.sprite = attachmentCircle;
                     break;
                 case Side.Right:
-                    rect.localEulerAngles = Vector3.forward * 90f;
-                    attachImage.sprite = attachmentInset;
+                    attachImage.sprite = rotatedAttachmentInset;
                     break;
                 case Side.Top:
                     attachImage.sprite = attachmentCircle;
