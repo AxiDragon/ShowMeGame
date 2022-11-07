@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Petals
+  m_Name: Eye
   m_Shader: {fileID: -6465566751694194690, guid: 7155b3f04c1dc7345a12b2c847fa22d4, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -74,8 +74,8 @@ Material:
     m_Colors:
     - Color_72ce03f6eb294788bd0a3bb83d2f3a0a: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Colour: {r: 0.5, g: 0.06918234, b: 0.11121329, a: 0}
-    - _ShadingColour: {r: 0.38288838, g: 0.07389932, b: 0.4433962, a: 0}
+    - _Colour: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadingColour: {r: 0.05660379, g: 0.0035599805, b: 0.018974906, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6919866497294256334
 MonoBehaviour:
