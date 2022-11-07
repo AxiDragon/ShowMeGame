@@ -27,6 +27,12 @@ namespace Gunbloem
             print("Game Over!");
         }
 
+        public override void TakeDamage(int damage)
+        {
+            UpdateRenderers();
+            base.TakeDamage(damage);
+        }
+
         private void Update()
         {
             healthUI.healthText.text = health.ToString();

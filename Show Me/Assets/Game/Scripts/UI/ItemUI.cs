@@ -21,7 +21,6 @@ namespace Gunbloem
 
         public virtual void Select()
         {
-            Debug.Log("selected");
             selected = !selected;
             bg.color = selected ? Color.gray : Color.white;
         }
