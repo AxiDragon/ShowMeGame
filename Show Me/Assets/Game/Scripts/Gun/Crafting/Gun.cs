@@ -12,13 +12,18 @@ namespace Gunbloem
         public float impact = 1;
         public float fireRate = 5f;
         public float speed = -0.1f;
+        
         public Bullet bullet;
         private LayerMask playerMask;
 
         public Transform shootTransform;
-        [HideInInspector] private Transform cam;
         private CameraMovement camMove;
+        [HideInInspector] private Transform cam;
+
+        public ParticleSystem shootEffect;
+
         private float shootingSpeed = 150f;
+
         float gunTimer;
 
         private void Start()
@@ -41,17 +46,15 @@ namespace Gunbloem
 
             gunTimer = 0f;
 
-            //if (shootTransform == null)
-            //{
-            //    return;
-            //}
-
             Vector3 shootTarget = GetShootTarget();
             Bullet bulletInstance = Instantiate(bullet, shootTransform.position + transform.forward, Quaternion.identity);
             bulletInstance.gun = this;
+
             Rigidbody bulletRb = bulletInstance.GetComponent<Rigidbody>();
             bulletRb.velocity = GetBulletDirection(shootTarget) * shootingSpeed;
             bullet.transform.LookAt(bullet.transform.position + bulletRb.velocity);
+
+            Instantiate(shootEffect, shootTransform);
         }
 
         private Vector3 GetBulletDirection(Vector3 shootTarget)
