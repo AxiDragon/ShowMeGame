@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: Enemies
   m_EditorClassIdentifier: 
   enemies:
-  - enemy: {fileID: 7101035535697220670, guid: ebd9fc04a34d4eb4c891559dd2ffabee, type: 3}
+  - enemy: {fileID: 6377441073608006873, guid: 4173f5d81f7b81047a2906e3ea57b09b, type: 3}
     creditCost: 5
-  - enemy: {fileID: 8501121866229417450, guid: a6cd624a2e9cb4d47b28a0d28334b9d5, type: 3}
-    creditCost: 10

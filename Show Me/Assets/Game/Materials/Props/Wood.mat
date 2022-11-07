@@ -103,7 +103,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_dc79406616554abebf1c259bff01ca29: 15
+    - Vector1_dc79406616554abebf1c259bff01ca29: 4
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -141,7 +141,8 @@ Material:
     - _UVSec: 0
     - _Wobble: 1
     - _WobbleRange: 0.1
-    - _WobleSpeed: 1.2
+    - _Wobble_Zoom_Scaling: 0
+    - _WobleSpeed: 4
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:

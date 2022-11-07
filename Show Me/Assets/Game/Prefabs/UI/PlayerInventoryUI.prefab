@@ -1006,7 +1006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5104318662042429290, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_text
-      value: craft gun?
+      value: craft gun
       objectReference: {fileID: 0}
     - target: {fileID: 6114103337718473206, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1034,7 +1034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6193735435786990045, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6547324512712408353, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1066,7 +1066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6969915806578159758, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7155567400759095301, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2996,7 +2996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5104318662042429290, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_text
-      value: plant?
+      value: plant
       objectReference: {fileID: 0}
     - target: {fileID: 5149300534614238896, guid: 5cbaef3d3a2b3b942b143e55927323cd, type: 3}
       propertyPath: m_AnchorMax.y
