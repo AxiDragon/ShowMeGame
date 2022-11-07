@@ -64,12 +64,13 @@ Material:
     - _Posterized_Shading: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Screen_Position_Wobble: 1
+    - _Screen_Position_Wobble: 0
     - _ShadPatScale: 2.41
     - _ShadingCutoff: 0.95
     - _ShadingOpacity: 0.5
     - _Wobble: 1
     - _WobbleRange: 0.1
+    - _Wobble_Zoom_Scaling: 1
     - _WobleSpeed: 0
     m_Colors:
     - Color_72ce03f6eb294788bd0a3bb83d2f3a0a: {r: 0, g: 0, b: 0, a: 0}
