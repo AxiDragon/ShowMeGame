@@ -701,6 +701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doge
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 830bbdb79f46a7540b604461433e1614, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: c7812205b50f6ad41ade1e383cad6b6b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 830bbdb79f46a7540b604461433e1614, type: 3}
 --- !u!1001 &1459987132
