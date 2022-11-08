@@ -19,5 +19,22 @@ namespace Gunbloem
         [Header("Other")]
         public Sprite sprite;
         [HideInInspector] public float plantRange = 5f;
+
+        public GunPart resultPart;
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.GetComponent<Harvest>()) 
+            {
+                other.gameObject.GetComponent<Harvest>().inRange = true;
+            }
+        }
+        public void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.GetComponent<Harvest>())
+            {
+                other.gameObject.GetComponent<Harvest>().inRange = false;
+            }
+        }
     }
 }

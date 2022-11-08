@@ -136,6 +136,13 @@ namespace Gunbloem
                 Destroy(go.transform.GetChild(i).gameObject);
             }
         }
+        public void AddGunPart(GunPart part) 
+        {
+            if (part != null) 
+            {
+                parts.Add(part);
+            }
+        }
 
         public void PlantGun() 
         {
