@@ -30,7 +30,7 @@ namespace Gunbloem
             gameObject.SetActive(true);
             power.text = $"{seed.minPower} - {seed.maxPower}";
             impact.text = $"{seed.minImpact} - {seed.maxImpact}";
-            fireRate.text = $"{seed.minFireRate} - {seed.minFireRate}";
+            fireRate.text = $"{seed.minFireRate} - {seed.maxFireRate}";
             speed.text = $"{seed.minSpeed} - {seed.maxSpeed}";
         }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,11 @@ namespace Gunbloem
         [HideInInspector] public bool harvestable = false;
         public GunPart resultPart;
         [SerializeField] private Transform displayTransform;
+        private Action destroyAction;
 
         private void Awake()
         {
+            destroyAction = () => { Destroy(gameObject); };
             anim = GetComponent<Animator>();
         }
 
@@ -26,7 +29,8 @@ namespace Gunbloem
         {
             if (harvestable)
             {
-                Destroy(gameObject);
+                harvestable = false;
+                transform.LeanScale(Vector3.one / 1000f, .5f).setEaseInCubic().setOnComplete(destroyAction);
                 return resultPart;
             }
 

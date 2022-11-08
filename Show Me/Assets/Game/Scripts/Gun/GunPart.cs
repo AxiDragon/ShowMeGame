@@ -9,10 +9,10 @@ namespace Gunbloem
     public class GunPart : MonoBehaviour
     {
         [Header("Unadjustable, just for info")]
-        public int power = 1;
-        public int impact = 1;
-        public int fireRate = 5;
-        public int speed = 10;
+        public int power;
+        public int impact;
+        public int fireRate;
+        public int speed;
         [HideInInspector] public Sprite sprite;
         public Attachment attachment;
 
@@ -20,6 +20,11 @@ namespace Gunbloem
         {
             sprite = attachment.GetComponent<Image>().sprite;
             return sprite;
+        }
+
+        public GunPart Clone()
+        {
+            return MemberwiseClone() as GunPart;
         }
     }
 }

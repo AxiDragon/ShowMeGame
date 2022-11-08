@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Gunbloem
 {
@@ -33,12 +34,15 @@ namespace Gunbloem
         {
             UpdateStats();
             RandomizeStats();
+            Vector3 startScale = transform.localScale;
+            transform.localScale = transform.localScale / 1000f;
+            transform.LeanScale(startScale, .5f).setEaseOutCubic();
         }
 
         private void UpdateStats()
         {
             EnemySpawner es = FindObjectOfType<EnemySpawner>();
-            float modifier = Mathf.Pow(1.1f, es.waveCount);
+            float modifier = Mathf.Pow(1.05f, es.waveCount);
             minPower = (int)(minPower * modifier);
             minImpact = (int)(minImpact * modifier);
             minFireRate = (int)(minFireRate * modifier);
@@ -49,20 +53,24 @@ namespace Gunbloem
 
         public void PlantSeed(Vector3 pos)
         {
-            RandomizeStats();
+            Quaternion randomRot = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
 
-            GunPlant p = Instantiate(plant, pos, Quaternion.identity);
+            GunPlant p = Instantiate(plant, pos, randomRot);
             p.resultPart = resultPart;
-            float time = (resultPart.power + resultPart.fireRate + resultPart.impact) / 1.5f;
+            float time = Mathf.Pow((resultPart.power + resultPart.fireRate + resultPart.impact) / 1.5f, .8f);
             p.SetGrowTime(time);
         }
 
         private void RandomizeStats()
         {
             resultPart.power = UnityEngine.Random.Range(minPower, maxPower);
+            print($"Power - {resultPart.power}");
             resultPart.impact = UnityEngine.Random.Range(minImpact, maxImpact);
+            print($"Impact - {resultPart.impact}");
             resultPart.fireRate = UnityEngine.Random.Range(minFireRate, maxFireRate);
+            print($"Firerate - {resultPart.fireRate}");
             resultPart.speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
+            print($"Speed - {resultPart.speed}");
         }
 
         public void Collect()
