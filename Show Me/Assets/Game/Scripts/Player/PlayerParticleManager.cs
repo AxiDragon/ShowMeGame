@@ -7,6 +7,7 @@ public class PlayerParticleManager : MonoBehaviour
     private static PlayerParticleManager instance;
     [SerializeField] private ParticleSystem shootEffect;
     [SerializeField] private ParticleSystem hitEffect;
+    [SerializeField] private ParticleSystem deathEffect;
 
     private void Awake()
     {
@@ -32,5 +33,11 @@ public class PlayerParticleManager : MonoBehaviour
     {
         ParticleSystem p = Instantiate(instance.hitEffect, pos, Quaternion.identity);
         p.transform.localScale = Vector3.one * pow;
+    }
+
+    public static void DeathEffect(Vector3 pos, float size)
+    {
+        ParticleSystem p = Instantiate(instance.deathEffect, pos, Quaternion.identity);
+        p.transform.localScale = Vector3.one * size;
     }
 }

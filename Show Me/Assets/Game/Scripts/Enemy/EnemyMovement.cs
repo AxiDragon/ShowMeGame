@@ -43,7 +43,7 @@ namespace Gunbloem
             {
                 NavMeshHit hit;
 
-                if (NavMesh.SamplePosition(transform.position, out hit, 15f, NavMesh.AllAreas))
+                if (NavMesh.SamplePosition(transform.position, out hit, 150f, NavMesh.AllAreas))
                 {
                     transform.position = hit.position;
                     break;

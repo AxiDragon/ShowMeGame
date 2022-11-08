@@ -88,7 +88,7 @@ namespace Gunbloem
                 {
                     if (!s.collected)
                     {
-                        inv.seeds.Add(s);
+                        inv.AddSeed(s);
                         s.Collect();
                     }
                 }

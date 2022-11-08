@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5848430209888603723}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152007746873907330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5084735908385475318}
   - component: {fileID: 7987722075237614845}
   - component: {fileID: 6603533700403788376}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BreedingBox
   m_TagString: Protection Target
   m_Icon: {fileID: 0}
@@ -120,6 +120,7 @@ MonoBehaviour:
   health: 5
   flashTime: 0.1
   maxHealth: 0
+  deathEffectSize: 1
 --- !u!114 &7987722075237614845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 634240402335951677}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,6 +197,22 @@ PrefabInstance:
     - target: {fileID: 538438931083216923, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128624228427855608, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230138613863790477, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175531513030678377, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732485033778912747, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6747702710789448307, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
       propertyPath: m_Pivot.x
@@ -297,6 +314,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6747702710789448319, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588825758884417464, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849800543149826144, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654767784114990163, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eee6d2041ca2ba4bb0fa01e8bf0190b, type: 3}
 --- !u!224 &9038450454825377381 stripped
@@ -371,9 +404,29 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7761516998742561946, guid: 53b2a98fd779aa94bad73086237d591c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -6544874623873248633, guid: 53b2a98fd779aa94bad73086237d591c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 53b2a98fd779aa94bad73086237d591c, type: 3}
       propertyPath: m_Name
       value: BreedBoxTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 53b2a98fd779aa94bad73086237d591c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7328386412291139264, guid: 53b2a98fd779aa94bad73086237d591c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006962052822971866, guid: 53b2a98fd779aa94bad73086237d591c, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53b2a98fd779aa94bad73086237d591c, type: 3}

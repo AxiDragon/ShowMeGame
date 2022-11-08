@@ -31,7 +31,7 @@ namespace Gunbloem
             {
                 harvestable = false;
                 transform.LeanScale(Vector3.one / 1000f, .5f).setEaseInCubic().setOnComplete(destroyAction);
-                return resultPart;
+                return Instantiate(resultPart, Vector3.zero, Quaternion.identity);
             }
 
             return null;

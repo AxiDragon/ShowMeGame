@@ -59,5 +59,13 @@ PrefabInstance:
       propertyPath: resultPart
       value: 
       objectReference: {fileID: 4425763021726093378, guid: dc513fa24b6273f4cb79363a1f33a0cb, type: 3}
+    - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
+      propertyPath: maxFireRate
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
+      propertyPath: minFireRate
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}

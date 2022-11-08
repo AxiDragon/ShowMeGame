@@ -64,13 +64,9 @@ namespace Gunbloem
         private void RandomizeStats()
         {
             resultPart.power = UnityEngine.Random.Range(minPower, maxPower);
-            print($"Power - {resultPart.power}");
             resultPart.impact = UnityEngine.Random.Range(minImpact, maxImpact);
-            print($"Impact - {resultPart.impact}");
             resultPart.fireRate = UnityEngine.Random.Range(minFireRate, maxFireRate);
-            print($"Firerate - {resultPart.fireRate}");
             resultPart.speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
-            print($"Speed - {resultPart.speed}");
         }
 
         public void Collect()

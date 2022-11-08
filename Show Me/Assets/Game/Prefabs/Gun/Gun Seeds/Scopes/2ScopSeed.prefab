@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: fecc5c1e7ba302d438d703e55d3d31fe, type: 3}
       propertyPath: maxPower
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: fecc5c1e7ba302d438d703e55d3d31fe, type: 3}
       propertyPath: maxSpeed
@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: fecc5c1e7ba302d438d703e55d3d31fe, type: 3}
       propertyPath: minPower
-      value: 20
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: fecc5c1e7ba302d438d703e55d3d31fe, type: 3}
       propertyPath: minSpeed
@@ -73,7 +73,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: fecc5c1e7ba302d438d703e55d3d31fe, type: 3}
       propertyPath: maxImpact
-      value: 18
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663576667412009482, guid: fecc5c1e7ba302d438d703e55d3d31fe, type: 3}
+      propertyPath: minImpact
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: fecc5c1e7ba302d438d703e55d3d31fe, type: 3}
       propertyPath: resultPart

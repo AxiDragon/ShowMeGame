@@ -12,6 +12,7 @@ namespace Gunbloem
         internal Renderer[] rends;
 
         [HideInInspector] public int maxHealth;
+        [SerializeField] private float deathEffectSize = 1f;
 
         private void Start()
         {
@@ -53,9 +54,7 @@ namespace Gunbloem
 
         public virtual void Die()
         {
-            print(name + " has died!");
+            PlayerParticleManager.DeathEffect(transform.position, deathEffectSize);
         }
-
-        
     }
 }
