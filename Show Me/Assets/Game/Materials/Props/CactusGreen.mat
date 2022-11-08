@@ -103,7 +103,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_dc79406616554abebf1c259bff01ca29: 4
+    - Vector1_dc79406616554abebf1c259bff01ca29: 3.47
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -111,6 +111,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DamageFlash: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -140,7 +141,7 @@ Material:
     - _Surface: 0
     - _UVSec: 0
     - _Wobble: 1
-    - _WobbleRange: 0.1
+    - _WobbleRange: 0.31
     - _Wobble_Zoom_Scaling: 0
     - _WobleSpeed: 4
     - _WorkflowMode: 1
