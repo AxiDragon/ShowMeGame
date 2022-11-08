@@ -30,7 +30,8 @@ namespace Gunbloem
             //Code for when the player presses X
             if (inp.performed)
             {
-                playerHarvest.HarvestAction();
+                if (!inventory.inventoryUI.activeInHierarchy)
+                    playerHarvest.HarvestAction();
             }
         }
     }

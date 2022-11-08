@@ -12,12 +12,6 @@ namespace Gunbloem
         [SerializeField] private TextMeshProUGUI impact;
         [SerializeField] private TextMeshProUGUI fireRate;
         [SerializeField] private TextMeshProUGUI speed;
-        RectTransform rect;
-
-        private void Awake()
-        {
-            rect = transform.parent.GetComponent<RectTransform>();
-        }
 
         private void Update()
         {

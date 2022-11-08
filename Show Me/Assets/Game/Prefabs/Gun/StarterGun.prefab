@@ -45,13 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c774aa73c630dd643b68519c4c7dcca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 3
+  power: 6
   impact: 3
-  fireRate: 3
+  fireRate: 2
   speed: 10
   bullet: {fileID: 4825303441131294004, guid: ebaf46fe09c07f640bdcc7d3f7018940, type: 3}
   shootTransform: {fileID: 4446203587151296065}
-  shootEffect: {fileID: 8250752682429945301, guid: 7e3990994b4fc494aa2d5efdc8fbdf37, type: 3}
 --- !u!1001 &558286898461810850
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -25,7 +25,8 @@ namespace Gunbloem
 
         public override void Die()
         {
-            print("Game Over!");
+            base.Die();
+            Destroy(gameObject);
         }
 
         public override void TakeDamage(int damage)

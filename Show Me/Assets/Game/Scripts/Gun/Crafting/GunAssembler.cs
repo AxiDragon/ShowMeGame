@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using TMPro;
 
 namespace Gunbloem
 {
@@ -16,12 +17,51 @@ namespace Gunbloem
         [SerializeField] private Transform craftInventory;
         [SerializeField] private UnityEvent gunCrafted;
         [SerializeField] private Bullet bullet;
+
+        [SerializeField] private TextMeshProUGUI power;
+        [SerializeField] private TextMeshProUGUI impact;
+        [SerializeField] private TextMeshProUGUI fireRate;
+        [SerializeField] private TextMeshProUGUI speed;
+
+        private int prevNumberOfChildren = 0;
         
         private void Awake()
         {
             inventory = GetComponentInParent<PlayerInventory>();
             fighter = inventory.GetComponent<PlayerFighter>();
             bench = GetComponent<Workbench>();
+        }
+
+        private void Update()
+        {
+            int children = transform.childCount;
+            if (children != prevNumberOfChildren)
+            {
+                prevNumberOfChildren = children;
+                UpdateStats();
+            }
+        }
+
+        private void UpdateStats()
+        {
+            List<GunPart> parts = GetUsedParts();
+
+            if (parts.Count > 0)
+            {
+                float div = Mathf.Sqrt(parts.Count);
+
+                power.text = $"{(int)((from part in parts select part.power).Sum() / div)}";
+                impact.text = $"{(int)((from part in parts select part.fireRate).Sum() / div)}";
+                fireRate.text = $"{(int)((from part in parts select part.impact).Sum() / div)}";
+                speed.text = $"{Mathf.Clamp((10 - ((parts.Count * 10) - (from part in parts select part.speed).Sum())), 3, 25)}";
+            }
+            else
+            {
+                power.text = "-";
+                impact.text = "-";
+                fireRate.text = "-";
+                speed.text = "-";
+            }
         }
 
         public void CraftGun()
@@ -67,7 +107,7 @@ namespace Gunbloem
             gun.power = (int)((from part in parts select part.power).Sum() / div);
             gun.fireRate = (int)((from part in parts select part.fireRate).Sum() / div);
             gun.impact = (int)((from part in parts select part.impact).Sum() / div);
-            gun.speed = (int)(10 - ((parts.Count * 10) - (from part in parts select part.speed).Sum()));
+            gun.speed = (10 - ((parts.Count * 10) - (from part in parts select part.speed).Sum()));
             gun.speed = Mathf.Clamp(gun.speed, 3, 25);
             gun.bullet = bullet;
 

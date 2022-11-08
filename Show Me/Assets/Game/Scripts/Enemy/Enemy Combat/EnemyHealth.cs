@@ -15,6 +15,7 @@ namespace Gunbloem
 
         public override void Die()
         {
+            base.Die();
             drops.DropItem();
             //Death Animation
             Destroy(gameObject);

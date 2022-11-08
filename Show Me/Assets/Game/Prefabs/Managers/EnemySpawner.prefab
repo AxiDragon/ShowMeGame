@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnList: {fileID: 11400000, guid: 7e629aeda6b191248820bff58e7967a1, type: 2}
-  startCredits: 22
+  startCredits: 20
   waveTime: 10
   waveTimeIncremental: 2
   graceTime: 2
