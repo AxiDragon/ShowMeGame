@@ -31,7 +31,7 @@ namespace Gunbloem
             //Code for when the player presses X
             if (inp.performed)
             {
-                //Check if near harvestable PT (In another script)
+                inventory.AddGunPart(playerHarvest.HarvestGunSeed());
             }
         }
 

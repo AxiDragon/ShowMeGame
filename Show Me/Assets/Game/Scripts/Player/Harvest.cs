@@ -10,20 +10,37 @@ namespace Gunbloem
         [SerializeField] private float plantRange;
         [SerializeField] private GameObject potToPlant;
         [SerializeField] float growTime = 2f;
-        [SerializeField] Transform stalk;
+        private GunSeed plantedSeed;
+        private GunPart part;
+        private bool canHarvest;
+        public bool inRange = false;
 
-        Vector3 stalkStartPos;
 
         public void Plant(GunSeed seed)
         {
             Vector3 pos = GetPlantingPosition();
             pos.y -= 0.5f;
-            GunSeed plantedSeed = Instantiate(seed, pos, Quaternion.identity);
-            /*GameObject pot = Instantiate(potToPlant, pos, potToPlant.transform.rotation);
-
-            stalk.position = pot.transform.position;
-            stalkStartPos = stalk.position;*/
+            plantedSeed = Instantiate(seed, pos, Quaternion.identity);
+            StartCoroutine(GrowSeed());
+           
         }
+        private IEnumerator GrowSeed()
+        {
+            float timer = 0f;
+
+            while (timer < growTime)
+            {
+                timer += Time.deltaTime;
+                plantedSeed.transform.Translate(Vector3.up * Time.deltaTime / 2f);
+                yield return null;
+            }
+            if (timer >= growTime) 
+            {
+                canHarvest = true;
+                part = plantedSeed.resultPart;
+            }
+        }
+
 
         private Vector3 GetPlantingPosition()
         {
@@ -46,6 +63,17 @@ namespace Gunbloem
             dir.Normalize();
 
             return position + dir * plantRange;
+        }
+
+        public GunPart HarvestGunSeed() 
+        {
+            if (canHarvest && inRange) 
+            {
+                Destroy(gameObject);
+                return part;
+            }
+
+            return null;
         }
 
         private void OnDrawGizmosSelected()
