@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,33 +8,70 @@ namespace Gunbloem
     public class GunSeed : MonoBehaviour
     {
         [Header("Max Stats")]
-        public float minPower = 1f;
-        public float minImpact = 1f;
-        public float minFireRate = 5f;
-        public float minSpeed = -0.1f;
+        public int minPower = 1;
+        public int minImpact = 1;
+        public int minFireRate = 5;
+        public int minSpeed = 8;
         [Header("Min Stats")]
-        public float maxPower = 1f;
-        public float maxImpact = 1f;
-        public float maxFireRate = 5f;
-        public float maxSpeed = -0.1f;
+        public int maxPower = 1;
+        public int maxImpact = 1;
+        public int maxFireRate = 5;
+        public int maxSpeed = 12;
         [Header("Other")]
         public Sprite sprite;
-        [HideInInspector] public float plantRange = 5f;
-
         public GunPart resultPart;
+        [SerializeField] private GunPlant plant;
+        [HideInInspector] public bool collected = false;
+        private Action destroyAction;
 
-        public void OnTriggerEnter(Collider other)
+        private void Awake()
         {
-            if (other.gameObject.GetComponent<Harvest>()) 
-            {
-                other.gameObject.GetComponent<Harvest>().inRange = true;
-            }
+            destroyAction = () => { Destroy(gameObject); };
         }
-        public void OnTriggerExit(Collider other)
+
+        private void Start()
         {
-            if (other.gameObject.GetComponent<Harvest>())
+            UpdateStats();
+            RandomizeStats();
+        }
+
+        private void UpdateStats()
+        {
+            EnemySpawner es = FindObjectOfType<EnemySpawner>();
+            float modifier = Mathf.Pow(1.1f, es.waveCount);
+            minPower = (int)(minPower * modifier);
+            minImpact = (int)(minImpact * modifier);
+            minFireRate = (int)(minFireRate * modifier);
+            maxPower = (int)(maxPower * modifier);
+            maxImpact = (int)(maxImpact * modifier);
+            maxFireRate = (int)(maxFireRate * modifier);
+        }
+
+        public void PlantSeed(Vector3 pos)
+        {
+            RandomizeStats();
+
+            GunPlant p = Instantiate(plant, pos, Quaternion.identity);
+            p.resultPart = resultPart;
+            float time = (resultPart.power + resultPart.fireRate + resultPart.impact) / 1.5f;
+            p.SetGrowTime(time);
+        }
+
+        private void RandomizeStats()
+        {
+            resultPart.power = UnityEngine.Random.Range(minPower, maxPower);
+            resultPart.impact = UnityEngine.Random.Range(minImpact, maxImpact);
+            resultPart.fireRate = UnityEngine.Random.Range(minFireRate, maxFireRate);
+            resultPart.speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
+        }
+
+        public void Collect()
+        {
+            if (!collected)
             {
-                other.gameObject.GetComponent<Harvest>().inRange = false;
+                collected = true;
+                transform.LeanScale(Vector3.one / 1000f, .5f).setEaseInCubic().setOnComplete(destroyAction);
+                transform.LeanMove(GameObject.FindWithTag("Player").transform.position, .5f);
             }
         }
     }

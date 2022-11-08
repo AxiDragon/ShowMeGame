@@ -64,11 +64,11 @@ namespace Gunbloem
             Gun gun = model.AddComponent<Gun>();
 
             float div = Mathf.Sqrt(parts.Count);
-            gun.power = (from part in parts select part.power).Sum() / div;
-            gun.fireRate = (from part in parts select part.fireRate).Sum() / div;
-            gun.impact = (from part in parts select part.impact).Sum() / div;
-            gun.speed = 10f - ((parts.Count * 10) - (from part in parts select part.speed).Sum());
-            gun.speed = Mathf.Clamp(gun.speed, 3f, 25f);
+            gun.power = (int)((from part in parts select part.power).Sum() / div);
+            gun.fireRate = (int)((from part in parts select part.fireRate).Sum() / div);
+            gun.impact = (int)((from part in parts select part.impact).Sum() / div);
+            gun.speed = (int)(10 - ((parts.Count * 10) - (from part in parts select part.speed).Sum()));
+            gun.speed = Mathf.Clamp(gun.speed, 3, 25);
             gun.bullet = bullet;
 
             PlaceModelInHand(ref model);

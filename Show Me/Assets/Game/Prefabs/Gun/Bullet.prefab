@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4825303441131293992}
   - component: {fileID: 4825303441131294005}
   - component: {fileID: 4825303441131294004}
-  m_Layer: 0
-  m_Name: TestBullet
+  m_Layer: 6
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4825303441131293995}
-  m_LocalRotation: {x: 0.074341, y: -0.005909079, z: 0.00044051363, w: 0.9972153}
+  m_LocalRotation: {x: 0.01645299, y: 0.9708837, z: -0.06989693, w: 0.22853568}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.04674351, y: 0.04674351, z: 0.11783807}
+  m_LocalScale: {x: 0.049999997, y: 0.049999997, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7510009988952226307}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7510009988952226307}
   - component: {fileID: 4168029540388097506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

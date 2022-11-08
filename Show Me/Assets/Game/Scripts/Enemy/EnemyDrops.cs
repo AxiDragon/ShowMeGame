@@ -7,6 +7,7 @@ namespace Gunbloem
     public class EnemyDrops : MonoBehaviour
     {
         [SerializeField] EnemyDropTable dropTable;
+        [SerializeField] float dropOffset = .2f;
 
         public void DropItem()
         {
@@ -15,7 +16,7 @@ namespace Gunbloem
 
             GameObject drop = GetDrop();
 
-            Instantiate(drop, transform.position, Quaternion.identity);
+            Instantiate(drop, transform.position + Vector3.one * dropOffset, Quaternion.identity);
         }
 
         private GameObject GetDrop()

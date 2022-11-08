@@ -18,7 +18,7 @@ namespace Gunbloem
         [SerializeField] float maximumSpawnRange = 10f;
 
         [HideInInspector] public bool active = true;
-        private int waveCount = 0;
+        [HideInInspector] public int waveCount = 0;
         private int credits;
 
         private int spawnAttempts = 30;

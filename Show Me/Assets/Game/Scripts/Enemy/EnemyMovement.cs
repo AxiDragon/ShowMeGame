@@ -21,7 +21,10 @@ namespace Gunbloem
 
         void Update()
         {
-            if (!stunned)
+            if (stunned)
+                return;
+
+            if (controller.target)
                 agent.SetDestination(controller.target.transform.position);
         }
 

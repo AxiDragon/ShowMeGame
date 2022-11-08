@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnList: {fileID: 11400000, guid: 7e629aeda6b191248820bff58e7967a1, type: 2}
-  startCredits: 35
+  startCredits: 15
   waveTime: 10
   waveTimeIncremental: 2
   graceTime: 2
   waveMultiplier: 1.1
-  minimumSpawnRange: 12
-  maximumSpawnRange: 20
+  minimumSpawnRange: 20
+  maximumSpawnRange: 25
   active: 1
+  waveCount: 0

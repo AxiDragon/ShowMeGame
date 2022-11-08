@@ -43,6 +43,10 @@ namespace Gunbloem
         {
             gun = newGun;
             movement.UpdateSpeed(gun.speed);
+            foreach (IKGunAim constraint in GetComponentsInChildren<IKGunAim>())
+            {
+                constraint.gun = newGun;
+            }
         }
 
         public void CanShoot(bool canShoot)

@@ -9,38 +9,20 @@ namespace Gunbloem
     {
         [SerializeField] private float plantRange;
         [SerializeField] private GameObject potToPlant;
-        [SerializeField] float growTime = 2f;
-        private GunSeed plantedSeed;
-        private GunPart part;
-        private bool canHarvest;
-        public bool inRange = false;
+        [SerializeField] private float collectRange = 2f;
+        private PlayerInventory inv;
 
+        private void Awake()
+        {
+            inv = GetComponent<PlayerInventory>();    
+        }
 
         public void Plant(GunSeed seed)
         {
             Vector3 pos = GetPlantingPosition();
             pos.y -= 0.5f;
-            plantedSeed = Instantiate(seed, pos, Quaternion.identity);
-            StartCoroutine(GrowSeed());
-           
+            seed.PlantSeed(pos);
         }
-        private IEnumerator GrowSeed()
-        {
-            float timer = 0f;
-
-            while (timer < growTime)
-            {
-                timer += Time.deltaTime;
-                plantedSeed.transform.Translate(Vector3.up * Time.deltaTime / 2f);
-                yield return null;
-            }
-            if (timer >= growTime) 
-            {
-                canHarvest = true;
-                part = plantedSeed.resultPart;
-            }
-        }
-
 
         private Vector3 GetPlantingPosition()
         {
@@ -53,7 +35,30 @@ namespace Gunbloem
                     plantingPosition = GetClosestPointOutOfRange(c.transform.position);
                 }
             }
+
             return plantingPosition;
+        }
+
+        public void HarvestAction()
+        {
+            foreach (Collider coll in Physics.OverlapSphere(transform.position, collectRange))
+            {
+                if (coll.TryGetComponent<GunPlant>(out var p))
+                {
+                    GunPart gp = p.HarvestGunPart();
+                    if (gp != null)
+                        inv.parts.Add(gp);
+                }
+
+                if (coll.TryGetComponent<GunSeed>(out var s))
+                {
+                    if (!s.collected)
+                    {
+                        inv.seeds.Add(s);
+                        s.Collect();
+                    }
+                }
+            }
         }
 
         private Vector3 GetClosestPointOutOfRange(Vector3 position)
@@ -63,17 +68,6 @@ namespace Gunbloem
             dir.Normalize();
 
             return position + dir * plantRange;
-        }
-
-        public GunPart HarvestGunSeed() 
-        {
-            if (canHarvest && inRange) 
-            {
-                Destroy(gameObject);
-                return part;
-            }
-
-            return null;
         }
 
         private void OnDrawGizmosSelected()

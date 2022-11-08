@@ -9,10 +9,10 @@ namespace Gunbloem
     public class GunPart : MonoBehaviour
     {
         [Header("Unadjustable, just for info")]
-        public float power = 1;
-        public float impact = 1;
-        public float fireRate = 5f;
-        public float speed = -0.1f;
+        public int power = 1;
+        public int impact = 1;
+        public int fireRate = 5;
+        public int speed = 10;
         [HideInInspector] public Sprite sprite;
         public Attachment attachment;
 

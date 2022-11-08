@@ -8,13 +8,12 @@ namespace Gunbloem
     public class PlayerInteractHandler : MonoBehaviour
     {
         PlayerInventory inventory;
-        //GunShoot playerGun;
         Harvest playerHarvest;
 
         private void Awake()
         {
             inventory = GetComponent<PlayerInventory>();
-            //playerGun = GetComponent<GunShoot>();   
+            playerHarvest = GetComponent<Harvest>();
         }
 
         public void InteractZ(InputAction.CallbackContext inp)
@@ -31,17 +30,8 @@ namespace Gunbloem
             //Code for when the player presses X
             if (inp.performed)
             {
-                inventory.AddGunPart(playerHarvest.HarvestGunSeed());
+                playerHarvest.HarvestAction();
             }
         }
-
-        //public void PlayerShoot(InputAction.CallbackContext inp)
-        //{
-        //    if (inp.performed) 
-        //    {
-        //        playerGun.Shoot();
-            
-        //    }
-        //}
     }
 }
