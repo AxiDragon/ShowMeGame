@@ -23,6 +23,7 @@ namespace Gunbloem
         public virtual void TakeDamage(int damage)
         {
             health -= damage;
+            health = Mathf.Max(health, 0);
             Flash();
             if (health <= 0)
                 Die();

@@ -12,11 +12,11 @@ namespace Gunbloem
         {
             drops = GetComponent<EnemyDrops>();
         }
-
         public override void Die()
         {
             base.Die();
             drops.DropItem();
+            ScoreKeeper.IncreaseScore((int)(maxHealth / 10f));
             //Death Animation
             Destroy(gameObject);
         }
