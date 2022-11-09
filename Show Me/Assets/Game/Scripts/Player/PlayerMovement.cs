@@ -32,9 +32,9 @@ namespace Gunbloem
 
         private void UpdateMovement()
         {
-            moveVector = Quaternion.AngleAxis(transform.rotation.eulerAngles.y, Vector3.up) * new Vector3(input.x, 0f, input.y);
+            moveVector = Quaternion.AngleAxis(pivot.eulerAngles.y, Vector3.up) * new Vector3(input.x, 0f, input.y);
 
-            //if (!Mathf.Approximately(moveVector.magnitude, 0f))
+            if (!Mathf.Approximately(moveVector.magnitude, 0f))
                 UpdateRotation();
 
             if (Mathf.Approximately(moveVector.magnitude, 0f))

@@ -106,11 +106,13 @@ Material:
     - Vector1_dc79406616554abebf1c259bff01ca29: 15
     - _AlphaClip: 0
     - _Blend: 0
+    - _Bop: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DamageFlash: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -129,6 +131,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Screen_Position_Wobble: 0
     - _ShadPatScale: 3
     - _ShadingCutoff: 0.95
     - _ShadingOpacity: 0.5
@@ -138,13 +141,16 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _UVSec: 0
-    - _Wobble: 0
+    - _Wobble: 1
     - _WobbleRange: 0.1
+    - _Wobble_Zoom_Scaling: 1
     - _WobleSpeed: 1.2
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Bop_Side_Range: {r: 0, g: 1, b: 0, a: 0}
+    - _Bop_Y_Range: {r: 0, g: 0.5, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _Colour: {r: 0.11320752, g: 0.05197577, b: 0.05197577, a: 0}
     - _EmissionColor: {r: 0.0753, g: 0.0581, b: 0.0419, a: 1}

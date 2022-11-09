@@ -29,7 +29,7 @@ namespace Gunbloem
         {
             cam = Camera.main.transform;
             camMove = GetComponentInParent<CameraMovement>();
-            playerMask = LayerMask.GetMask("Player");
+            playerMask = LayerMask.GetMask("Player", "Seed", "ButtonHint", "ProtectionTarget");
             playerMask = ~playerMask;
             UpdateIKAimers();
         }

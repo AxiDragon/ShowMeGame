@@ -53,27 +53,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4500185748617187506, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
       propertyPath: m_Name
-      value: 1MagSeed
+      value: 2MagSeed
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
       propertyPath: maxPower
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
+      propertyPath: maxSpeed
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
       propertyPath: minPower
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
-      propertyPath: minSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
-      propertyPath: maxImpact
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
+      propertyPath: minSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
+      propertyPath: maxImpact
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
       propertyPath: minImpact
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
       propertyPath: resultPart
@@ -81,11 +85,11 @@ PrefabInstance:
       objectReference: {fileID: 4425763021726093378, guid: 8009e88cd23138347b27746e0cb24928, type: 3}
     - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
       propertyPath: maxFireRate
-      value: 30
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}
       propertyPath: minFireRate
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40a1eb671c8f0e24f8299c1b0f1c1db8, type: 3}

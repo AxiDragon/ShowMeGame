@@ -13,7 +13,7 @@ namespace Gunbloem
         [SerializeField] public List<GunSeed> seeds = new List<GunSeed>();
         [SerializeField] public List<GunPart> parts = new List<GunPart>();
         [Header("UI GameObjects")]
-        [SerializeField] private GameObject inventoryUI;
+        [SerializeField] public GameObject inventoryUI;
         [SerializeField] private GameObject plantMenuContent;
         [SerializeField] private GameObject breedMenuContent;
         [SerializeField] private GameObject craftMenuContent;
@@ -24,8 +24,19 @@ namespace Gunbloem
         [SerializeField] private UnityEvent inventoryOpen;
         [SerializeField] private UnityEvent inventoryClosed;
 
+        private InventoryHintDisplayer hint;
+        private bool inventoryTriggered = false;
+
+        private void Awake()
+        {
+            hint = GetComponent<InventoryHintDisplayer>();    
+        }
+
         public void InteractInventory()
         {
+            inventoryTriggered = true;
+            hint.canDisplay = false;
+
             inventoryUI.SetActive(!inventoryUI.activeInHierarchy);
             Time.timeScale = inventoryUI.activeInHierarchy ? 0.0f : 1.0f;
             Cursor.lockState = inventoryUI.activeInHierarchy ? CursorLockMode.None : CursorLockMode.Locked;
@@ -136,22 +147,13 @@ namespace Gunbloem
                 Destroy(go.transform.GetChild(i).gameObject);
             }
         }
-        public void AddGunPart(GunPart part) 
-        {
-            if (part != null) 
-            {
-                parts.Add(part);
-            }
-        }
 
-        public void PlantGun() 
+        //only for button hint appearing tbh oops
+        public void AddSeed(GunSeed seed)
         {
-            Harvest harvest = GetComponent<Harvest>();
-            if(seeds.Count > 0)
-            {
-                harvest.Plant(seeds[0]);
-            }
-        
+            seeds.Add(seed);
+            if (!inventoryTriggered)
+                hint.canDisplay = true;
         }
     }
 }

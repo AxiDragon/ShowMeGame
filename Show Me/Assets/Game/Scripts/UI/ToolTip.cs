@@ -12,12 +12,6 @@ namespace Gunbloem
         [SerializeField] private TextMeshProUGUI impact;
         [SerializeField] private TextMeshProUGUI fireRate;
         [SerializeField] private TextMeshProUGUI speed;
-        RectTransform rect;
-
-        private void Awake()
-        {
-            rect = transform.parent.GetComponent<RectTransform>();
-        }
 
         private void Update()
         {
@@ -30,7 +24,7 @@ namespace Gunbloem
             gameObject.SetActive(true);
             power.text = $"{seed.minPower} - {seed.maxPower}";
             impact.text = $"{seed.minImpact} - {seed.maxImpact}";
-            fireRate.text = $"{seed.minFireRate} - {seed.minFireRate}";
+            fireRate.text = $"{seed.minFireRate} - {seed.maxFireRate}";
             speed.text = $"{seed.minSpeed} - {seed.maxSpeed}";
         }
 

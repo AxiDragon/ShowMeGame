@@ -42,6 +42,13 @@ namespace Gunbloem
             attachImage.color = new Color(c.r, c.g, c.b, 1f);
         }
 
+        private void Update()
+        {
+            //Color c = attachImage.color;
+            //c.a += snapped ? -Time.deltaTime * 2f : Time.deltaTime * 2f;
+            //attachImage.color = c;
+        }
+
         private void SetUpAttachImage()
         {
             switch (side)
@@ -89,12 +96,25 @@ namespace Gunbloem
             par.position = (Vector2)snapPoint.rect.position + offset;
             snapPoint.snappedTo = this;
             snapPoint.snapped = true;
+
+            ChangeImageVisibility(false);
+            snappedTo.ChangeImageVisibility(false);
+        }
+
+        public void ChangeImageVisibility(bool visible)
+        {
+            Color c = attachImage.color;
+            c.a = visible ? 1f : 0f;
+            attachImage.color = c;
         }
 
         public void UnSnap()
         {
             if (snapped)
             {
+                ChangeImageVisibility(true);
+                snappedTo.ChangeImageVisibility(true);
+
                 snappedTo.snappedTo = null;
                 snappedTo.snapped = false;
 

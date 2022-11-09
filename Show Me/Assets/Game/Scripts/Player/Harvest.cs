@@ -2,19 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Gunbloem
 {
     public class Harvest : MonoBehaviour
     {
         [SerializeField] private float plantRange;
-        [SerializeField] private GameObject potToPlant;
+        [SerializeField] private BreedBox breedBox;
         [SerializeField] private float collectRange = 2f;
         private PlayerInventory inv;
+        [HideInInspector] public List<GunPart> breedList;
 
         private void Awake()
         {
-            inv = GetComponent<PlayerInventory>();    
+            inv = GetComponent<PlayerInventory>();
         }
 
         public void Plant(GunSeed seed)
@@ -22,6 +24,38 @@ namespace Gunbloem
             Vector3 pos = GetPlantingPosition();
             pos.y -= 0.5f;
             seed.PlantSeed(pos);
+        }
+
+        public void SelectBreed(GunPart part)
+        {
+            breedList.Add(part);
+            
+            if (breedList.Count == 2)
+            {
+                Breed(breedList);
+                inv.parts.Remove(breedList[0]);
+                inv.parts.Remove(breedList[1]);
+                breedList.Clear();
+                inv.InteractInventory();
+            }
+        }
+
+        public void DeselectBreed(GunPart part)
+        {
+            breedList.Remove(part);
+        }
+
+        public void Breed(List<GunPart> parts)
+        {
+            GunPart p0 = parts[0];
+            GunPart p1 = parts[1];
+
+            float time = Mathf.Pow((p0.power + p1.power + p0.fireRate + p1.fireRate + p0.impact + p1.impact) / 3f, .85f);
+
+            Quaternion randomRot = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+            BreedBox box = Instantiate(breedBox, GetPlantingPosition() - Vector3.up * .5f, randomRot);
+            box.SetBreedTime(time);
+            box.Breed(parts);
         }
 
         private Vector3 GetPlantingPosition()
@@ -54,8 +88,18 @@ namespace Gunbloem
                 {
                     if (!s.collected)
                     {
-                        inv.seeds.Add(s);
+                        inv.AddSeed(s);
                         s.Collect();
+                    }
+                }
+
+                if (coll.TryGetComponent<BreedBox>(out var b))
+                {
+                    inv.seeds.Add(b.HarvestGunSeed(out var g));
+                    if (g.Count == 2)
+                    {
+                        inv.parts.Add(g[0]);
+                        inv.parts.Add(g[1]);
                     }
                 }
             }
@@ -74,6 +118,8 @@ namespace Gunbloem
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, plantRange);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, collectRange);
         }
     }
 }

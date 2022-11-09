@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Gunbloem
 {
@@ -23,6 +24,7 @@ namespace Gunbloem
         [SerializeField] private GunPlant plant;
         [HideInInspector] public bool collected = false;
         private Action destroyAction;
+        private float despawnTime = 45f;
 
         private void Awake()
         {
@@ -33,12 +35,17 @@ namespace Gunbloem
         {
             UpdateStats();
             RandomizeStats();
+            Vector3 startScale = transform.localScale;
+            transform.localScale = transform.localScale / 1000f;
+            transform.LeanScale(startScale, .5f).setEaseOutCubic();
+
+            Invoke("Despawn", despawnTime);
         }
 
         private void UpdateStats()
         {
             EnemySpawner es = FindObjectOfType<EnemySpawner>();
-            float modifier = Mathf.Pow(1.1f, es.waveCount);
+            float modifier = Mathf.Pow(1.05f, es.waveCount);
             minPower = (int)(minPower * modifier);
             minImpact = (int)(minImpact * modifier);
             minFireRate = (int)(minFireRate * modifier);
@@ -49,11 +56,12 @@ namespace Gunbloem
 
         public void PlantSeed(Vector3 pos)
         {
-            RandomizeStats();
+            Quaternion randomRot = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
 
-            GunPlant p = Instantiate(plant, pos, Quaternion.identity);
-            p.resultPart = resultPart;
-            float time = (resultPart.power + resultPart.fireRate + resultPart.impact) / 1.5f;
+            GunPlant p = Instantiate(plant, pos, randomRot);
+            GunPart gp = Instantiate(resultPart, Vector3.zero, randomRot);
+            p.resultPart = gp;
+            float time = Mathf.Pow((resultPart.power + resultPart.fireRate + resultPart.impact) / 1.5f, .8f);
             p.SetGrowTime(time);
         }
 
@@ -70,9 +78,15 @@ namespace Gunbloem
             if (!collected)
             {
                 collected = true;
+                CancelInvoke("Despawn");
                 transform.LeanScale(Vector3.one / 1000f, .5f).setEaseInCubic().setOnComplete(destroyAction);
                 transform.LeanMove(GameObject.FindWithTag("Player").transform.position, .5f);
             }
+        }
+
+        private void Despawn()
+        {
+            transform.LeanScale(Vector3.one / 1000f, .5f).setEaseInCubic().setOnComplete(destroyAction);
         }
     }
 }

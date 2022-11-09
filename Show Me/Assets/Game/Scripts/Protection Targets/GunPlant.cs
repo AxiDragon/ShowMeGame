@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,10 +11,15 @@ namespace Gunbloem
         [HideInInspector] public bool harvestable = false;
         public GunPart resultPart;
         [SerializeField] private Transform displayTransform;
+        private Action destroyAction;
+
+        private ButtonHintDisplayer hintDisplayer;
 
         private void Awake()
         {
+            destroyAction = () => { Destroy(gameObject); };
             anim = GetComponent<Animator>();
+            hintDisplayer = GetComponent<ButtonHintDisplayer>();
         }
 
         public void SetGrowTime(float time)
@@ -26,8 +32,9 @@ namespace Gunbloem
         {
             if (harvestable)
             {
-                Destroy(gameObject);
-                return resultPart;
+                harvestable = false;
+                transform.LeanScale(Vector3.one / 1000f, .5f).setEaseInCubic().setOnComplete(destroyAction);
+                return Instantiate(resultPart, Vector3.zero, Quaternion.identity);
             }
 
             return null;
@@ -37,10 +44,17 @@ namespace Gunbloem
         public void HarvestTrigger()
         {
             harvestable = true;
+            hintDisplayer.canDisplay = true;
+
             //Display harvestable gunpart
             GunPart part = Instantiate(resultPart, displayTransform);
             part.transform.localScale = Vector3.one / 100f;
             part.transform.LeanScale(Vector3.one * 2f, .5f).setEaseOutBack();
+        }
+
+        private void OnDestroy()
+        {
+            Destroy(resultPart.gameObject);
         }
     }
 }

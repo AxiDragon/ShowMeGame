@@ -25,7 +25,29 @@ namespace Gunbloem
 
         public override void Die()
         {
-            print("Game Over!");
+            base.Die();
+            StartCoroutine(TimeSlowDown());
+        }
+
+        private IEnumerator TimeSlowDown()
+        {
+            float timer = 0f;
+            float time = .45f;
+            while (timer < 1f)
+            {
+                float x = Mathf.Clamp01(timer / time);
+                float timeSlowdownFactor = 1f - (1f - x) * (1f - x);
+                Time.timeScale = Mathf.Lerp(1f, 0f, timeSlowdownFactor);
+                timer += Time.unscaledDeltaTime;
+                yield return null;
+            }
+
+            GameOver();
+        }
+
+        private void GameOver()
+        {
+            FindObjectOfType<ScoreKeeper>().GameOver();
         }
 
         public override void TakeDamage(int damage)

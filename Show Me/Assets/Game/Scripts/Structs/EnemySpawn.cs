@@ -7,5 +7,6 @@ namespace Gunbloem
     {
         public EnemyController enemy;
         public int creditCost;
+        public int firstWaveAppearance;
     }
 }

@@ -38,6 +38,18 @@ namespace Gunbloem
             stunned = true;
             agent.enabled = false;
             yield return new WaitForSeconds(time);
+
+            for (int i = 0; i < 30; i++)
+            {
+                NavMeshHit hit;
+
+                if (NavMesh.SamplePosition(transform.position, out hit, 150f, NavMesh.AllAreas))
+                {
+                    transform.position = hit.position;
+                    break;
+                }
+            }
+
             stunned = false;
             agent.enabled = true;
         }

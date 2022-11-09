@@ -34,6 +34,7 @@ namespace Gunbloem
 
         public override void Die()
         {
+            base.Die();
             Destroy(gameObject);
         }
 
