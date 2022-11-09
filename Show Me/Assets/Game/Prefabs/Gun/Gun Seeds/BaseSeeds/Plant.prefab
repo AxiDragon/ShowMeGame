@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonParent: {fileID: 119515658215973731}
   scaleInTime: 0.5
-  displayAfterTime: 1.5
+  displayAfterTime: 1
   canDisplay: 0
   useDistance: 1
   distance: 2

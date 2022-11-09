@@ -27,20 +27,23 @@ namespace Gunbloem
             anim.speed = 1f / time;
         }
 
-        public GunSeed HarvestGunSeed(out List<GunPart> usedParts)
+        public GunSeed HarvestGunSeed(out List<GunPart> usedParts, out bool success)
         {
+            success = false;
+
             usedParts = new List<GunPart>();
             usedParts.Add(breedingParts[0]);
             usedParts.Add(breedingParts[1]);
 
             if (harvestable)
             {
+                success = true;
                 harvestable = false;
                 transform.LeanScale(Vector3.one / 1000f, .5f).setEaseInCubic().setOnComplete(destroyAction);
                 return seed;
             }
 
-            //usedParts.Clear();
+            usedParts.Clear();
 
             return null;
         }
@@ -72,6 +75,8 @@ namespace Gunbloem
         public void HarvestTrigger()
         {
             harvestable = true;
+            PlayerParticleManager.PoofEffect(displayTransform.position);
+
             //Display harvestable seed
             GunSeed result = Instantiate(seed, displayTransform);
             result.GetComponent<Rigidbody>().isKinematic = true;

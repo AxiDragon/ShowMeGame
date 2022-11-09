@@ -45,6 +45,7 @@ namespace Gunbloem
         {
             harvestable = true;
             hintDisplayer.canDisplay = true;
+            PlayerParticleManager.PoofEffect(displayTransform.position);
 
             //Display harvestable gunpart
             GunPart part = Instantiate(resultPart, displayTransform);

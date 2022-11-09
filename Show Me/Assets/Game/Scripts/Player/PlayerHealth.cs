@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Gunbloem
 {
@@ -26,6 +27,8 @@ namespace Gunbloem
         public override void Die()
         {
             base.Die();
+            GetComponent<PlayerInput>().enabled = false;
+            Cursor.lockState = CursorLockMode.None;
             StartCoroutine(TimeSlowDown());
         }
 

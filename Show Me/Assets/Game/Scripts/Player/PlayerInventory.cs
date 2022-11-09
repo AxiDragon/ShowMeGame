@@ -22,34 +22,109 @@ namespace Gunbloem
         [SerializeField] private PartItemUI partUI;
         [Header("Events")]
         [SerializeField] private UnityEvent inventoryOpen;
+        [SerializeField] private UnityEvent inventoryClosing;
         [SerializeField] private UnityEvent inventoryClosed;
+        [SerializeField] private float swipeOffset = 4000f;
+        [Header("Children")]
+        [SerializeField] private Transform bar;
+        [SerializeField] private Transform foldouts;
+        [SerializeField] private float swipeTime = .2f;
+        private float barIn;
+        private float barOut;
+        private float foldoutsIn;
+        private float foldoutsOut;
+        private Camera cam;
 
         private InventoryHintDisplayer hint;
         private bool inventoryTriggered = false;
 
+        [HideInInspector] public bool sliding = false;
+        [HideInInspector] public bool slidIn = false;
+
         private void Awake()
         {
-            hint = GetComponent<InventoryHintDisplayer>();    
+            hint = GetComponent<InventoryHintDisplayer>();
+            cam = Camera.main;
+        }
+
+        private void Start()
+        {
+            barIn = bar.localPosition.x;
+            barOut = barIn + swipeOffset;
+            foldoutsIn = foldouts.localPosition.x;
+            foldoutsOut = foldoutsOut + swipeOffset;
+
+            bar.localPosition = new Vector3(barOut, bar.localPosition.y, bar.localPosition.z);
+            foldouts.localPosition = new Vector3(foldoutsOut, foldouts.localPosition.y, foldouts.localPosition.z);
         }
 
         public void InteractInventory()
         {
+            if (sliding)
+                return;
+
             inventoryTriggered = true;
             hint.canDisplay = false;
 
-            inventoryUI.SetActive(!inventoryUI.activeInHierarchy);
-            Time.timeScale = inventoryUI.activeInHierarchy ? 0.0f : 1.0f;
-            Cursor.lockState = inventoryUI.activeInHierarchy ? CursorLockMode.None : CursorLockMode.Locked;
-
-            if (inventoryUI.activeInHierarchy)
+            if (!inventoryUI.activeInHierarchy)
             {
-                //if possible, gradual time slowdown and inventory opening for sparkle
+                inventoryUI.SetActive(true);
+            }
+
+            Cursor.lockState = slidIn ? CursorLockMode.Locked : CursorLockMode.None;
+
+            if (slidIn)
+                inventoryClosing?.Invoke();
+
+            SlideInventory(!slidIn);
+        }
+
+        private void SlideInventory(bool swipeIn)
+        {
+            sliding = true;
+            slidIn = swipeIn;
+
+            StartCoroutine(ControlTime(swipeIn));
+            bar.LeanMoveLocalX(swipeIn ? barIn : barOut, swipeTime).setEaseInOutCubic().setIgnoreTimeScale(true);
+            foldouts.LeanMoveLocalX(swipeIn ? foldoutsIn : foldoutsOut, swipeTime).setEaseInOutCubic().setIgnoreTimeScale(true);
+        }
+
+        private IEnumerator ControlTime(bool swipeIn)
+        {
+            float end = swipeIn ? 0f : 1f;
+            float start = swipeIn ? 1f : 0f;
+            float camStart = swipeIn ? 60f : 30f;
+            float camEnd = swipeIn ? 30f : 60f;
+            float timer = 0f;
+
+            while (timer < swipeTime)
+            {
+                float t = EaseInOutCubic(timer / swipeTime);
+                Time.timeScale = Mathf.Lerp(start, end, t);
+                cam.fieldOfView = Mathf.Lerp(camStart, camEnd, t);
+                timer += Time.unscaledDeltaTime;
+                yield return null;
+            }
+
+            Time.timeScale = end;
+            cam.fieldOfView = camEnd;
+
+            if (swipeIn)
+            {
                 inventoryOpen?.Invoke();
             }
             else
             {
                 inventoryClosed?.Invoke();
+                inventoryUI.SetActive(false);
             }
+
+            sliding = false;
+        }
+
+        private float EaseInOutCubic(float x)
+        {
+            return x < 0.5f ? 4f * Mathf.Pow(x, 3f) : 1 - Mathf.Pow(-2f * x + 2f, 3f) / 2f;
         }
 
         public void GenerateInventory()
@@ -88,7 +163,7 @@ namespace Gunbloem
             {
                 PartItemUI item = Instantiate(partUI, transform);
                 item.part = parts[i];
-                
+
                 ClearChildren(item.gameObject);
                 Attachment att = Instantiate(parts[i].attachment, item.transform);
                 att.part = parts[i];

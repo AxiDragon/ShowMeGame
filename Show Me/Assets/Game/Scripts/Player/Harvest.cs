@@ -95,9 +95,10 @@ namespace Gunbloem
 
                 if (coll.TryGetComponent<BreedBox>(out var b))
                 {
-                    inv.seeds.Add(b.HarvestGunSeed(out var g));
-                    if (g.Count == 2)
+                    GunSeed seed = b.HarvestGunSeed(out var g, out var o);
+                    if (o)
                     {
+                        inv.seeds.Add(seed);
                         inv.parts.Add(g[0]);
                         inv.parts.Add(g[1]);
                     }
