@@ -2,24 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 namespace Gunbloem
 {
     public class Gun : MonoBehaviour
     {
         [Header("Stats")]
-        public float power = 1;
-        public float impact = 1;
-        public float fireRate = 5f;
-        public float speed = -0.1f;
-        
+        public int power = 1;
+        public int impact = 1;
+        public int fireRate = 5;
+        public int speed = 10;
+
         public Bullet bullet;
         private LayerMask playerMask;
 
         public Transform shootTransform;
         private CameraMovement camMove;
         [HideInInspector] private Transform cam;
-        
+
         private float shootingSpeed = 250f;
 
         float gunTimer;
@@ -28,8 +29,17 @@ namespace Gunbloem
         {
             cam = Camera.main.transform;
             camMove = GetComponentInParent<CameraMovement>();
-            playerMask = LayerMask.GetMask("Player");
+            playerMask = LayerMask.GetMask("Player", "Seed", "ButtonHint", "ProtectionTarget");
             playerMask = ~playerMask;
+            UpdateIKAimers();
+        }
+
+        private void UpdateIKAimers()
+        {
+            foreach (IKGunAim constraint in FindObjectsOfType<IKGunAim>())
+            {
+                constraint.gun = this;
+            }
         }
 
         void Update()
@@ -46,7 +56,7 @@ namespace Gunbloem
             gunTimer = 0f;
 
             Vector3 shootTarget = GetShootTarget();
-            Bullet bulletInstance = Instantiate(bullet, shootTransform.position + transform.forward, Quaternion.identity);
+            Bullet bulletInstance = Instantiate(bullet, shootTransform.position, Quaternion.identity);
             bulletInstance.gun = this;
 
             Rigidbody bulletRb = bulletInstance.GetComponent<Rigidbody>();
@@ -61,10 +71,14 @@ namespace Gunbloem
             return (shootTarget - shootTransform.position).normalized;
         }
 
-        private Vector3 GetShootTarget()
+        public Vector3 GetShootTarget()
         {
             RaycastHit hit;
-            Ray ray = new Ray(GetRayOrigin(), cam.transform.forward);
+            Ray ray;
+            if (cam)
+                ray = new Ray(GetRayOrigin(), cam.transform.forward);
+            else
+                ray = new Ray(transform.position, transform.forward);
 
             if (Physics.Raycast(ray, out hit, 500f, playerMask))
             {
@@ -76,7 +90,10 @@ namespace Gunbloem
 
         private Vector3 GetRayOrigin()
         {
-            return (cam.position - cam.transform.forward * camMove.cameraTarget.localPosition.z);
+            if (cam)
+                return (cam.position - cam.transform.forward * camMove.cameraTarget.localPosition.z);
+
+            return transform.position;
         }
 
         private void OnDrawGizmos()

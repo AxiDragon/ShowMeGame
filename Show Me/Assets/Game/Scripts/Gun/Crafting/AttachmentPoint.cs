@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gunbloem
 {
@@ -11,23 +12,55 @@ namespace Gunbloem
         private Side oppSide;
         public int id = 0;
         private Attachment attacher;
+        private Image attachImage;
         private Vector2 offset;
         [HideInInspector] public AttachmentPoint snappedTo = null;
         [HideInInspector] public RectTransform rect;
         [HideInInspector] public bool snapped = false;
         private RectTransform par;
 
+        [Header("Don't Change These!")]
+        [SerializeField] private Sprite attachmentCircle;
+        [SerializeField] private Sprite attachmentInset;
+        [SerializeField] private Sprite rotatedAttachmentInset;
+
         private void Awake()
         {
             par = transform.parent.GetComponent<RectTransform>();
             rect = GetComponent<RectTransform>();
             attacher = GetComponentInParent<Attachment>();
+            attachImage = GetComponent<Image>();
         }
         
         private void Start()
         {
             oppSide = GetOppositeSide();
             offset = par.position - rect.position;
+            SetUpAttachImage();
+            //test
+            Color c = attachImage.color;
+            attachImage.color = new Color(c.r, c.g, c.b, 1f);
+        }
+
+        private void SetUpAttachImage()
+        {
+            switch (side)
+            {
+                case Side.Left:
+                    attachImage.sprite = attachmentCircle;
+                    break;
+                case Side.Right:
+                    attachImage.sprite = rotatedAttachmentInset;
+                    break;
+                case Side.Top:
+                    attachImage.sprite = attachmentCircle;
+                    break;
+                case Side.Bottom:
+                    attachImage.sprite = attachmentInset;
+                    break;
+                default:
+                    throw new NotImplementedException("No side specified, somehow");
+            }
         }
 
         private Side GetOppositeSide()

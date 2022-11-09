@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a993ab4ebcbe1947a3876714a0a5f63, type: 3}
+  m_Name: AllDrops
+  m_EditorClassIdentifier: 
+  overallDropChance: 0.2
+  drops:
+  - name: All
+    chance: 1
+    droppables:
+    - {fileID: 3048914400161893772, guid: 164c0f922c1540543bf6d6f32f5a0876, type: 3}
+    - {fileID: 3048914400161893772, guid: 4090476e8a070e84583710915e467f72, type: 3}
+    - {fileID: 2449149284759928980, guid: 29dc8d41e1089d4448aaa1af4e337982, type: 3}
+    - {fileID: 2449149284759928980, guid: cfa57dd7626c129489e079c287161a47, type: 3}
+    - {fileID: 1830207061120499462, guid: 49d2a3d6ac7ece5498bd6fc15255a9c2, type: 3}
+    - {fileID: 1830207061120499462, guid: a659bdc56259827409a24258b3205278, type: 3}
+    - {fileID: 121388207256808622, guid: d02ea2252cdcdcd408c7b9ed1644c59b, type: 3}
+    - {fileID: 121388207256808622, guid: 28de0317609cef343a3f122f3a8de463, type: 3}
+    - {fileID: 4645321512337622626, guid: 924d9fb5c054e994f8ecea9eecdea419, type: 3}
+    - {fileID: 4645321512337622626, guid: 508933ecffbedbd41ac18a8a4950c1b3, type: 3}

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,35 @@ namespace Gunbloem
 
         public override void Die()
         {
-            print("Game Over!");
+            base.Die();
+            StartCoroutine(TimeSlowDown());
+        }
+
+        private IEnumerator TimeSlowDown()
+        {
+            float timer = 0f;
+            float time = .45f;
+            while (timer < 1f)
+            {
+                float x = Mathf.Clamp01(timer / time);
+                float timeSlowdownFactor = 1f - (1f - x) * (1f - x);
+                Time.timeScale = Mathf.Lerp(1f, 0f, timeSlowdownFactor);
+                timer += Time.unscaledDeltaTime;
+                yield return null;
+            }
+
+            GameOver();
+        }
+
+        private void GameOver()
+        {
+            FindObjectOfType<ScoreKeeper>().GameOver();
+        }
+
+        public override void TakeDamage(int damage)
+        {
+            UpdateRenderers();
+            base.TakeDamage(damage);
         }
 
         private void Update()
@@ -55,7 +84,14 @@ namespace Gunbloem
 
         public void UpdateRenderers()
         {
-            rends = GetComponentsInChildren<Renderer>();
+            List<Renderer> rendList = GetComponentsInChildren<Renderer>().ToList();
+            for (int i = rendList.Count - 1; i >= 0; i--)
+            {
+                if (rendList[i].TryGetComponent<ParticleSystem>(out var _))
+                    rendList.RemoveAt(i);
+            }
+
+            rends = rendList.ToArray();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Gunbloem
         void Awake()
         {
             current = this;
+            Hide();
         }
         
         public static void Show(GunSeed s)

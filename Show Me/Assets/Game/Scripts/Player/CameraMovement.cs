@@ -38,7 +38,8 @@ namespace Gunbloem
         {
             if (!controllable)
                 return; 
-            Vector2 rotation = callback.ReadValue<Vector2>() * (rotateSensitivity / 1000f);
+
+            Vector2 rotation = callback.ReadValue<Vector2>() * (rotateSensitivity / 10f) * Time.deltaTime;
 
             xRotationTarget -= rotation.y;
             xRotationTarget = Mathf.Clamp(xRotationTarget, bottomClamp, topClamp);

@@ -26,14 +26,11 @@ namespace Gunbloem
             {
                 if (coll.TryGetComponent<EnemyHealth>(out var h))
                 {
-                    h.TakeDamage((int)gun.power);
+                    h.TakeDamage(gun.power);
                     PlayerParticleManager.HitEffect(collision.GetContact(0).point, gun.impact / 15f);
 
                     if (h.TryGetComponent<EnemyMovement>(out var m))
                         m.Stun(gun.impact / 10f);
-                    
-                    if (h.TryGetComponent<Rigidbody>(out var rb))
-                        rb.AddExplosionForce(gun.power, transform.position, gun.impact / 10f);
                 }
                 else
                 {

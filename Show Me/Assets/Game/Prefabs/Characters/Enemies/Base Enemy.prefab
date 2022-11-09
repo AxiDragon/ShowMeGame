@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e645e325226bf4ca6a20cd735ec251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropTable: {fileID: 11400000, guid: 0b4243b199a03ae42a4b90881f4e6ef7, type: 2}
+  dropTable: {fileID: 11400000, guid: d8edb337bd9aa024f9553834d7a20d80, type: 2}
 --- !u!114 &2177936596540978838
 MonoBehaviour:
   m_ObjectHideFlags: 0
