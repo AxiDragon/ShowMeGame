@@ -469,7 +469,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  inventoryClosed:
+  inventoryClosing:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3611932972599207511}
@@ -484,6 +484,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 8213141549326732226}
+        m_TargetAssemblyTypeName: Gunbloem.PlayerFighter, Assembly-CSharp
+        m_MethodName: CanShoot
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  inventoryClosed:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 3804455247977423878}
         m_TargetAssemblyTypeName: Gunbloem.ToolTipSystem, Assembly-CSharp
         m_MethodName: Hide
@@ -508,18 +523,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 8213141549326732226}
-        m_TargetAssemblyTypeName: Gunbloem.PlayerFighter, Assembly-CSharp
-        m_MethodName: CanShoot
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+  swipeOffset: 4000
+  bar: {fileID: 8877445319811978690}
+  foldouts: {fileID: 4192295668557840173}
+  swipeTime: 0.4
+  sliding: 0
+  slidIn: 0
 --- !u!114 &8213141549326732226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +683,7 @@ MonoBehaviour:
   shootEffect: {fileID: 8250752682429945301, guid: 7e3990994b4fc494aa2d5efdc8fbdf37, type: 3}
   hitEffect: {fileID: 7221908289940487574, guid: 3e2f08400c1595d49855ad27539b9f2f, type: 3}
   deathEffect: {fileID: 4365803489355199626, guid: cd60700e0c61c6b4ab1cba1d1a28469f, type: 3}
+  poofEffect: {fileID: 4365803489355199626, guid: c2ee213207a162748885434e13af86c8, type: 3}
 --- !u!114 &6683824002323162707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7037,6 +7047,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761662ba875567c46945c774dacfe9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4192295668557840173 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8016958689888941352, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+  m_PrefabInstance: {fileID: 6156407226094569989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4778554227651823077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1675099374342049760, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
@@ -7045,6 +7060,11 @@ GameObject:
 --- !u!1 &4778554227710287865 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1675099374803162620, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
+  m_PrefabInstance: {fileID: 6156407226094569989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8877445319811978690 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3340816306023374791, guid: 04780d5ddec6471469eed5c445395b6d, type: 3}
   m_PrefabInstance: {fileID: 6156407226094569989}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &8877445320246567314 stripped

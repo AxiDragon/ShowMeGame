@@ -96,7 +96,7 @@ namespace Gunbloem
             {
                 collHit = true;
 
-                return ray.origin + ray.direction * (hit.distance - .3f);
+                return ray.origin + ray.direction * (hit.distance * .9f);
             }
 
             return Vector3.zero;
