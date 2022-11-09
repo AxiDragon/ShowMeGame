@@ -8,10 +8,11 @@ namespace Gunbloem
     {
         [SerializeField] EnemyDropTable dropTable;
         [SerializeField] float dropOffset = .2f;
+        [HideInInspector] public bool guaranteedDrop = false;
 
         public void DropItem()
         {
-            if (Random.value > dropTable.overallDropChance)
+            if (!guaranteedDrop && Random.value > dropTable.overallDropChance)
                 return;
 
             GameObject drop = GetDrop();

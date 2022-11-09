@@ -17,14 +17,22 @@ namespace Gunbloem
         Vector3 baseScale;
         Vector3 offset;
 
+        public bool useDistance = false;
+        public float distance = 4f;
+        private Transform player;
+
         void Awake()
         {
             baseScale = buttonParent.localScale;
             offset = transform.position - buttonParent.position;
+            player = GameObject.FindWithTag("Player").transform;
         }
 
         void Update()
         {
+            if (useDistance)
+                inRange = Vector3.Distance(player.transform.position, transform.position) < distance;
+
             timer += inRange ? Time.deltaTime : -Time.deltaTime;
             timer = Mathf.Clamp(timer, 0f, scaleInTime + displayAfterTime);
 
@@ -54,6 +62,15 @@ namespace Gunbloem
         {
             if (other.CompareTag("Player"))
                 inRange = false;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            if (!useDistance)
+                return;
+
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, distance);
         }
     }
 }

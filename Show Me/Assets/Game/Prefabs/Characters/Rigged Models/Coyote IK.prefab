@@ -1623,6 +1623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6221531031683505977}
+  - component: {fileID: 6966196534860321705}
   m_Layer: 0
   m_Name: Coyote IK
   m_TagString: Untagged
@@ -1647,6 +1648,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &6966196534860321705
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709379579512931715}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.000002115965, y: 0.36424488, z: 0.10295758}
+  m_Size: 1.505012
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7756377472347211975}
+    - renderer: {fileID: 2201830342068235488}
+    - renderer: {fileID: 8208476073082813060}
+    - renderer: {fileID: 6461539173146145869}
+    - renderer: {fileID: 4941625251792024552}
+    - renderer: {fileID: 945511446648177585}
+    - renderer: {fileID: 9177948647063276414}
+    - renderer: {fileID: 1043092282518994949}
+    - renderer: {fileID: 6400033918992191385}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &6728340737097815067
 GameObject:
   m_ObjectHideFlags: 0

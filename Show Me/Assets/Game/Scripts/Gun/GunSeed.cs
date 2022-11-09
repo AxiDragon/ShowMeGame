@@ -24,6 +24,7 @@ namespace Gunbloem
         [SerializeField] private GunPlant plant;
         [HideInInspector] public bool collected = false;
         private Action destroyAction;
+        private float despawnTime = 45f;
 
         private void Awake()
         {
@@ -37,6 +38,8 @@ namespace Gunbloem
             Vector3 startScale = transform.localScale;
             transform.localScale = transform.localScale / 1000f;
             transform.LeanScale(startScale, .5f).setEaseOutCubic();
+
+            Invoke("Despawn", despawnTime);
         }
 
         private void UpdateStats()
@@ -56,7 +59,8 @@ namespace Gunbloem
             Quaternion randomRot = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
 
             GunPlant p = Instantiate(plant, pos, randomRot);
-            p.resultPart = resultPart;
+            GunPart gp = Instantiate(resultPart, Vector3.zero, randomRot);
+            p.resultPart = gp;
             float time = Mathf.Pow((resultPart.power + resultPart.fireRate + resultPart.impact) / 1.5f, .8f);
             p.SetGrowTime(time);
         }
@@ -74,9 +78,15 @@ namespace Gunbloem
             if (!collected)
             {
                 collected = true;
+                CancelInvoke("Despawn");
                 transform.LeanScale(Vector3.one / 1000f, .5f).setEaseInCubic().setOnComplete(destroyAction);
                 transform.LeanMove(GameObject.FindWithTag("Player").transform.position, .5f);
             }
+        }
+
+        private void Despawn()
+        {
+            transform.LeanScale(Vector3.one / 1000f, .5f).setEaseInCubic().setOnComplete(destroyAction);
         }
     }
 }

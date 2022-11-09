@@ -15,3 +15,7 @@ MonoBehaviour:
   enemies:
   - enemy: {fileID: 6377441073608006873, guid: 4173f5d81f7b81047a2906e3ea57b09b, type: 3}
     creditCost: 5
+    firstWaveAppearance: 0
+  - enemy: {fileID: 1484691614432460598, guid: 4a6917c47e7a82b449e8ef0f0c28ac95, type: 3}
+    creditCost: 7
+    firstWaveAppearance: 6

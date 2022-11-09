@@ -13,10 +13,13 @@ namespace Gunbloem
         [SerializeField] private Transform displayTransform;
         private Action destroyAction;
 
+        private ButtonHintDisplayer hintDisplayer;
+
         private void Awake()
         {
             destroyAction = () => { Destroy(gameObject); };
             anim = GetComponent<Animator>();
+            hintDisplayer = GetComponent<ButtonHintDisplayer>();
         }
 
         public void SetGrowTime(float time)
@@ -41,10 +44,17 @@ namespace Gunbloem
         public void HarvestTrigger()
         {
             harvestable = true;
+            hintDisplayer.canDisplay = true;
+
             //Display harvestable gunpart
             GunPart part = Instantiate(resultPart, displayTransform);
             part.transform.localScale = Vector3.one / 100f;
             part.transform.LeanScale(Vector3.one * 2f, .5f).setEaseOutBack();
+        }
+
+        private void OnDestroy()
+        {
+            Destroy(resultPart.gameObject);
         }
     }
 }

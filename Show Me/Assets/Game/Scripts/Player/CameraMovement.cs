@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,6 @@ namespace Gunbloem
         [SerializeField] Transform cameraYPivot;
         [HideInInspector] public float scrollTarget;
         [SerializeField] float zoomAdjustSpeed = 5f;
-        //[SerializeField] float rotateAdjustSpeed = 5f;
         [SerializeField] float minZoom = 1f;
         [SerializeField] float maxZoom = 35f;
         [SerializeField] float topClamp = -90f;
@@ -21,9 +21,10 @@ namespace Gunbloem
         [HideInInspector] public Transform cameraTarget;
         float xRotationTarget = 0f;
         private bool controllable = true;
+        private bool colliding = false;
         Vector3 offset;
 
-        //float yRotationTarget = 0f;
+        LayerMask mask;
 
         void Awake()
         {
@@ -32,6 +33,7 @@ namespace Gunbloem
             Cursor.lockState = CursorLockMode.Locked;
             offset = cameraYPivot.position - transform.position;
             cameraYPivot.parent = null;
+            mask = LayerMask.GetMask("Terrain");
         }
 
         public void RotateCamera(InputAction.CallbackContext callback)
@@ -63,16 +65,41 @@ namespace Gunbloem
             if (!controllable)
                 return;
 
+            CheckCollision();
+
+            if (colliding)
+                return;
+
             float scrollDiff = scrollTarget - cameraTarget.localPosition.z;
             cameraTarget.localPosition += new Vector3(0f, 0f, scrollDiff * zoomAdjustSpeed / 100f);
+        }
 
-            //float xDiff = Mathf.DeltaAngle(xRotationTarget, cameraPivot.localEulerAngles.x) / 360f;
-            //print(xRotationTarget + "    " + cameraPivot.localEulerAngles.x);
-            //print(xDiff);
-            //Vector3 pRot = cameraPivot.localEulerAngles;
-            //print(pRot);
-            //cameraPivot.localRotation = Quaternion.Euler((xDiff * zoomAdjustSpeed / 100f) + pRot.x, 0f, 0f);
-            //print(Quaternion.Euler((xDiff * rotateAdjustSpeed / 100f) + pRot.x, 0f, 0f));
+        private void CheckCollision()
+        {
+            Vector3 coll = GetCollisionPoint(out bool c);
+            colliding = c;
+
+            if (colliding)
+                cameraTarget.transform.position = coll;
+        }
+
+        public Vector3 GetCollisionPoint(out bool collHit)
+        {
+            collHit = false;
+
+            RaycastHit hit;
+            Ray ray = new Ray(cameraXPivot.position, -cameraXPivot.forward);
+
+            Debug.DrawRay(ray.origin, ray.direction * scrollTarget, Color.red);
+
+            if (Physics.Raycast(ray, out hit, Mathf.Abs(scrollTarget), mask))
+            {
+                collHit = true;
+
+                return ray.origin + ray.direction * (hit.distance - .3f);
+            }
+
+            return Vector3.zero;
         }
 
         private void LateUpdate()

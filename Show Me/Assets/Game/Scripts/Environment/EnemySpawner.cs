@@ -16,6 +16,8 @@ namespace Gunbloem
         [SerializeField] float waveMultiplier = 1.15f;
         [SerializeField] float minimumSpawnRange = 5f;
         [SerializeField] float maximumSpawnRange = 10f;
+        [SerializeField] int difficultySpikeWaves = 5;
+        [SerializeField] float spikeIncrease = .1f;
 
         [HideInInspector] public bool active = true;
         [HideInInspector] public int waveCount = 0;
@@ -35,6 +37,13 @@ namespace Gunbloem
                 yield return new WaitForSeconds(graceTime);
                 waveCount++;
                 credits = Mathf.RoundToInt(startCredits * GetMultiplier());
+
+                if (waveCount % difficultySpikeWaves == 0)
+                {
+                    waveMultiplier += spikeIncrease;
+                    credits = Mathf.RoundToInt(startCredits * GetMultiplier() * 1.5f);
+                }
+
                 yield return WaveCoroutine();
             }
         }
@@ -50,7 +59,14 @@ namespace Gunbloem
                 Vector3 spawnPos = GetRandomSpawnPosition();
 
                 if (spawnPos != Vector3.positiveInfinity)
+                {
+                    if (i == 0)
+                    {
+                        SpawnEnemy(waveSpawns[i], spawnPos, true);
+                    }
+
                     SpawnEnemy(waveSpawns[i], spawnPos);
+                }
 
                 yield return new WaitForSeconds(timePerEnemy);
             }
@@ -64,7 +80,7 @@ namespace Gunbloem
             while(possibleSpawns.Count > 0)
             {
                 int random = Random.Range(0, possibleSpawns.Count);
-                if (credits > possibleSpawns[random].creditCost)
+                if ((credits > possibleSpawns[random].creditCost) && (waveCount >= possibleSpawns[random].firstWaveAppearance))
                 {
                     spawns.Add(possibleSpawns[random].enemy);
                     credits -= possibleSpawns[random].creditCost;
@@ -112,6 +128,17 @@ namespace Gunbloem
             EnemyHealth instanceHealth = enemyInstance.GetComponent<EnemyHealth>();
             int newHealth = Mathf.RoundToInt(instanceHealth.health * GetMultiplier());
             instanceHealth.maxHealth = instanceHealth.health = newHealth;
+        }
+
+        private void SpawnEnemy(EnemyController enemy, Vector3 pos, bool guaranteedDrop)
+        {
+            EnemyController enemyInstance = Instantiate(enemy, pos, Quaternion.identity);
+
+            EnemyHealth instanceHealth = enemyInstance.GetComponent<EnemyHealth>();
+            int newHealth = Mathf.RoundToInt(instanceHealth.health * GetMultiplier());
+            instanceHealth.maxHealth = instanceHealth.health = newHealth;
+
+            enemyInstance.GetComponent<EnemyDrops>().guaranteedDrop = guaranteedDrop;
         }
 
         private float GetMultiplier()

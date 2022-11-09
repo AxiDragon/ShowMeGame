@@ -12,9 +12,9 @@ namespace Gunbloem
         internal Renderer[] rends;
 
         [HideInInspector] public int maxHealth;
-        [SerializeField] private float deathEffectSize = 1f;
+        [SerializeField] internal float deathEffectSize = 1f;
 
-        private void Start()
+        public virtual void Start()
         {
             maxHealth = health;
             rends = GetComponentsInChildren<Renderer>();

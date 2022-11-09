@@ -81,7 +81,6 @@ GameObject:
   - component: {fileID: 74906690189414444}
   - component: {fileID: 5084735908385475318}
   - component: {fileID: 9093374668491835466}
-  - component: {fileID: 3644083937935431740}
   m_Layer: 12
   m_Name: Plant
   m_TagString: Protection Target
@@ -185,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753d6ef3653192a4c84b7d4817706f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 3
   flashTime: 0.1
   maxHealth: 0
   deathEffectSize: 1
@@ -205,19 +204,8 @@ MonoBehaviour:
   scaleInTime: 0.5
   displayAfterTime: 1.5
   canDisplay: 0
---- !u!135 &3644083937935431740
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2714647094609648918}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
+  useDistance: 1
+  distance: 2
 --- !u!1 &2825391028258967332
 GameObject:
   m_ObjectHideFlags: 0

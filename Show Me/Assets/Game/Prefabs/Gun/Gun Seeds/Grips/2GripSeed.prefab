@@ -57,15 +57,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: da460a66c5fd1b94394f7ed0816be07c, type: 3}
       propertyPath: maxPower
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: da460a66c5fd1b94394f7ed0816be07c, type: 3}
-      propertyPath: minPower
+      propertyPath: maxSpeed
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: da460a66c5fd1b94394f7ed0816be07c, type: 3}
+      propertyPath: minPower
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663576667412009482, guid: da460a66c5fd1b94394f7ed0816be07c, type: 3}
       propertyPath: minSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5663576667412009482, guid: da460a66c5fd1b94394f7ed0816be07c, type: 3}
       propertyPath: maxImpact
@@ -79,5 +83,9 @@ PrefabInstance:
       propertyPath: resultPart
       value: 
       objectReference: {fileID: 4425763021726093378, guid: a922da4075f21344181c838477d4e854, type: 3}
+    - target: {fileID: 5663576667412009482, guid: da460a66c5fd1b94394f7ed0816be07c, type: 3}
+      propertyPath: maxFireRate
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da460a66c5fd1b94394f7ed0816be07c, type: 3}

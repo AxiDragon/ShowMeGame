@@ -13,19 +13,19 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2089759f34871774c8edf65b0e30a9ec, type: 3}
     - target: {fileID: 2259397305645988869, guid: 63c01390dcbe37d49adb6b07676dbd4c, type: 3}
       propertyPath: maxPower
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2259397305645988869, guid: 63c01390dcbe37d49adb6b07676dbd4c, type: 3}
       propertyPath: maxSpeed
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2259397305645988869, guid: 63c01390dcbe37d49adb6b07676dbd4c, type: 3}
       propertyPath: minPower
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2259397305645988869, guid: 63c01390dcbe37d49adb6b07676dbd4c, type: 3}
       propertyPath: minSpeed
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2259397305645988869, guid: 63c01390dcbe37d49adb6b07676dbd4c, type: 3}
       propertyPath: maxImpact
@@ -33,15 +33,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2259397305645988869, guid: 63c01390dcbe37d49adb6b07676dbd4c, type: 3}
       propertyPath: minImpact
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2259397305645988869, guid: 63c01390dcbe37d49adb6b07676dbd4c, type: 3}
       propertyPath: maxFireRate
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2259397305645988869, guid: 63c01390dcbe37d49adb6b07676dbd4c, type: 3}
       propertyPath: minFireRate
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7276658854964913159, guid: 63c01390dcbe37d49adb6b07676dbd4c, type: 3}
       propertyPath: m_RootOrder
