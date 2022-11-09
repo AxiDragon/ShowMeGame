@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4365803489355199626}
   - component: {fileID: 4365803489355199627}
   m_Layer: 0
-  m_Name: PoofEffect
+  m_Name: PoofEffectAlt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

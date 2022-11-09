@@ -12,7 +12,6 @@ namespace Gunbloem
         [SerializeField] private float slideTime = .4f;
         private MenuButton[] siblings;
         private bool sliding = false;
-        private bool slidIn = false;
         private float start;
         private float end;
         private Action slideIn;
@@ -57,7 +56,6 @@ namespace Gunbloem
 
         public void Open()
         {
-            slidIn = true;
             sliding = true;
             foldOut.SetActive(true);
 
@@ -66,7 +64,6 @@ namespace Gunbloem
 
         public void Close()
         {
-            slidIn = false;
             sliding = true;
 
             foldOut.LeanMoveLocalY(end, slideTime).setEaseInOutCubic().setIgnoreTimeScale(true).setOnComplete(slideOut);

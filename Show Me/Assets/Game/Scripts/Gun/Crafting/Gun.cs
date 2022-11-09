@@ -48,10 +48,14 @@ namespace Gunbloem
             transform.LookAt(GetShootTarget());
         }
 
-        public void Shoot()
+        public void Shoot(out bool shot)
         {
+            shot = false;
+
             if (gunTimer < (1f / fireRate))
                 return;
+
+            shot = true;
 
             gunTimer = 0f;
 

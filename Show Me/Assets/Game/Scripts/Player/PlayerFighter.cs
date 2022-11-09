@@ -9,6 +9,7 @@ namespace Gunbloem
     {
         [HideInInspector] private Gun gun;
         [SerializeField] private Transform gunHolder;
+        [SerializeField] private AudioSource gunShoot;
         private PlayerMovement movement;
         private bool canShoot = true;
 
@@ -25,7 +26,9 @@ namespace Gunbloem
             {
                 if (canShoot)
                 {
-                    gun.Shoot();
+                    gun.Shoot(out bool s);
+                    if (s)
+                        gunShoot.PlayOneShot(gunShoot.clip);
                 }
             }
         }

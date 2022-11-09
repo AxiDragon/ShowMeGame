@@ -15,6 +15,7 @@ namespace Gunbloem
         Vector3 targetPos;
         [SerializeField] private float moveDistance = 1f;
         [SerializeField] bool keepOnY = true;
+        [SerializeField] AudioSource footStepAudio;
 
         void Awake()
         {
@@ -45,6 +46,9 @@ namespace Gunbloem
             }
 
             targetPos = tarPos;
+
+            if (footStepAudio)
+                footStepAudio.Play();
         }
 
         private void OnDrawGizmosSelected()

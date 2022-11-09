@@ -22,12 +22,15 @@ namespace Gunbloem
 
         private void OnCollisionEnter(Collision collision)
         {
+            float explosionPower = gun.impact / 45f;
+
             foreach (Collider coll in Physics.OverlapSphere(transform.position, gun.impact / 10f))
             {
                 if (coll.TryGetComponent<EnemyHealth>(out var h))
                 {
                     h.TakeDamage(gun.power);
                     PlayerParticleManager.HitEffect(collision.GetContact(0).point, gun.impact / 15f);
+                    explosionPower *= 3f;
 
                     if (h.TryGetComponent<EnemyMovement>(out var m))
                         m.Stun(gun.impact / 10f);
@@ -38,6 +41,7 @@ namespace Gunbloem
                 }
             }
 
+            PlayerParticleManager.ExplosionSound(transform.position, explosionPower);
             Destroy(gameObject);
         }
     }

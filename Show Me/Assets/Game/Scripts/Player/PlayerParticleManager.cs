@@ -9,6 +9,7 @@ public class PlayerParticleManager : MonoBehaviour
     [SerializeField] private ParticleSystem hitEffect;
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private ParticleSystem poofEffect;
+    [SerializeField] private AudioSource explosionSound;
 
     private void Awake()
     {
@@ -45,5 +46,13 @@ public class PlayerParticleManager : MonoBehaviour
     {
         ParticleSystem p = Instantiate(instance.deathEffect, pos, Quaternion.identity);
         p.transform.localScale = Vector3.one * size;
+    }
+
+    public static void ExplosionSound(Vector3 pos, float impact)
+    {
+        AudioSource exp = Instantiate(instance.explosionSound, pos, Quaternion.identity);
+        exp.pitch = Mathf.Lerp(2f, 3f, impact / 3f);
+        exp.volume = Mathf.Lerp(.5f, 1f, impact / 3f);
+        exp.maxDistance = Mathf.Lerp(25f, 250f, impact / 3f);
     }
 }
