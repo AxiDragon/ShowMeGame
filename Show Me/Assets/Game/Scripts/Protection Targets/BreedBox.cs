@@ -23,8 +23,8 @@ namespace Gunbloem
 
         public void SetBreedTime(float time)
         {
-            //Regular animation time is 1
-            anim.speed = 1f / time;
+            //Regular animation time is 2.5
+            anim.speed = 2.5f / time;
         }
 
         public GunSeed HarvestGunSeed(out List<GunPart> usedParts, out bool success)

@@ -446,10 +446,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6196730749059965612}
-        m_TargetAssemblyTypeName: Gunbloem.PlayerInventory, Assembly-CSharp
-        m_MethodName: GenerateInventory
-        m_Mode: 1
+      - m_Target: {fileID: 8213141549326732226}
+        m_TargetAssemblyTypeName: Gunbloem.PlayerFighter, Assembly-CSharp
+        m_MethodName: CanShoot
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -458,10 +458,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8213141549326732226}
-        m_TargetAssemblyTypeName: Gunbloem.PlayerFighter, Assembly-CSharp
-        m_MethodName: CanShoot
-        m_Mode: 6
+  inventoryOpening:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6196730749059965612}
+        m_TargetAssemblyTypeName: Gunbloem.PlayerInventory, Assembly-CSharp
+        m_MethodName: GenerateInventory
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

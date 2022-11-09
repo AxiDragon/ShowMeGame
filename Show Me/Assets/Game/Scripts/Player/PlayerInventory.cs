@@ -22,6 +22,7 @@ namespace Gunbloem
         [SerializeField] private PartItemUI partUI;
         [Header("Events")]
         [SerializeField] private UnityEvent inventoryOpen;
+        [SerializeField] private UnityEvent inventoryOpening;
         [SerializeField] private UnityEvent inventoryClosing;
         [SerializeField] private UnityEvent inventoryClosed;
         [SerializeField] private float swipeOffset = 4000f;
@@ -75,6 +76,8 @@ namespace Gunbloem
 
             if (slidIn)
                 inventoryClosing?.Invoke();
+            else
+                inventoryOpening?.Invoke();
 
             SlideInventory(!slidIn);
         }
