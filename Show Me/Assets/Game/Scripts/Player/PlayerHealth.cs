@@ -13,6 +13,7 @@ namespace Gunbloem
         private float regenTimer = 0f;
         [SerializeField] float pulseTime;
         [SerializeField] float pulseSize;
+        [SerializeField] AudioSource hurt;
         HealthUI healthUI;
         Vector3 baseScale;
         Vector3 largeScale;
@@ -56,6 +57,7 @@ namespace Gunbloem
         public override void TakeDamage(int damage)
         {
             UpdateRenderers();
+            hurt.Play();
             base.TakeDamage(damage);
         }
 

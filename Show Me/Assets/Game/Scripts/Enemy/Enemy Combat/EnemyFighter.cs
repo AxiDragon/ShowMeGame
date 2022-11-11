@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Gunbloem
 {
@@ -9,6 +10,7 @@ namespace Gunbloem
     {
         [SerializeField] float attackCooldown = 1f;
         [SerializeField] AudioSource attackAudio;
+        private bool canPlaySound = true;
         public float range = 5f;
         Animator animator;
         float timeSinceLastAttack = Mathf.Infinity;
@@ -28,6 +30,12 @@ namespace Gunbloem
             {
                 animator.SetTrigger("Attack");
                 timeSinceLastAttack = 0f;
+                if (canPlaySound)
+                {
+                    attackAudio.pitch = Random.Range(2f, 2.5f);
+                    attackAudio.Play();
+                    canPlaySound = false;
+                }
                 transform.LookAt(controller.target.transform.position);
             }
 
@@ -58,9 +66,9 @@ namespace Gunbloem
         //Animation Event
         private void AttackTrigger()
         {
-            //attackAudio.Play();
+            canPlaySound = true;
             attack.Attack(controller.target);
             timeSinceLastAttack = 0f;
-        } 
+        }
     }
 }

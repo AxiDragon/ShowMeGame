@@ -8257,6 +8257,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c53ef6986c5e1d42aff1789df9a4131, type: 3}
+--- !u!1 &1957325073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957325075}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957325075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957325073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 53.415283, y: 4.177739, z: 41.226864}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2010837218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8264,6 +8295,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 859237619}
     m_Modifications:
+    - target: {fileID: 4390252087264050813, guid: f9c67262595d66b4ba806c3dc995eaad, type: 3}
+      propertyPath: spawnList
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ca60782ba417a14c8a0134ac653558f, type: 2}
     - target: {fileID: 4390252087264050814, guid: f9c67262595d66b4ba806c3dc995eaad, type: 3}
       propertyPath: m_RootOrder
       value: 0

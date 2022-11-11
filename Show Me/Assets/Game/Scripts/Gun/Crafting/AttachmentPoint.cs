@@ -23,6 +23,7 @@ namespace Gunbloem
         [SerializeField] private Sprite attachmentCircle;
         [SerializeField] private Sprite attachmentInset;
         [SerializeField] private Sprite rotatedAttachmentInset;
+        private AudioSource click;
 
         private void Awake()
         {
@@ -30,6 +31,7 @@ namespace Gunbloem
             rect = GetComponent<RectTransform>();
             attacher = GetComponentInParent<Attachment>();
             attachImage = GetComponent<Image>();
+            click = GetComponent<AudioSource>();
         }
         
         private void Start()
@@ -40,13 +42,6 @@ namespace Gunbloem
             //test
             Color c = attachImage.color;
             attachImage.color = new Color(c.r, c.g, c.b, 1f);
-        }
-
-        private void Update()
-        {
-            //Color c = attachImage.color;
-            //c.a += snapped ? -Time.deltaTime * 2f : Time.deltaTime * 2f;
-            //attachImage.color = c;
         }
 
         private void SetUpAttachImage()
@@ -97,6 +92,8 @@ namespace Gunbloem
             snapPoint.snappedTo = this;
             snapPoint.snapped = true;
 
+            click.pitch = 1f;
+            click.Play();
             ChangeImageVisibility(false);
             snappedTo.ChangeImageVisibility(false);
         }
@@ -112,6 +109,8 @@ namespace Gunbloem
         {
             if (snapped)
             {
+                click.pitch = .5f;
+                click.Play();
                 ChangeImageVisibility(true);
                 snappedTo.ChangeImageVisibility(true);
 

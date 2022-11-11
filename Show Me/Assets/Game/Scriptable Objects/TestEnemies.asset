@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - enemy: {fileID: 6377441073608006873, guid: 4173f5d81f7b81047a2906e3ea57b09b, type: 3}
-    creditCost: 5
+    creditCost: 1
     firstWaveAppearance: 0
   - enemy: {fileID: 1484691614432460598, guid: 4a6917c47e7a82b449e8ef0f0c28ac95, type: 3}
-    creditCost: 7
-    firstWaveAppearance: 7
+    creditCost: 1
+    firstWaveAppearance: 0
   - enemy: {fileID: 195165194664368556, guid: f84f7e4bc2bd6a8478f49f2e4d66c2c2, type: 3}
-    creditCost: 7
-    firstWaveAppearance: 15
+    creditCost: 1
+    firstWaveAppearance: 0
   - enemy: {fileID: 8921150292828643593, guid: 5edd34ff24940bf49998bac3074d030f, type: 3}
     creditCost: 1
     firstWaveAppearance: 0

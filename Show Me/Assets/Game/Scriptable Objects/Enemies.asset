@@ -20,7 +20,7 @@ MonoBehaviour:
     creditCost: 7
     firstWaveAppearance: 7
   - enemy: {fileID: 195165194664368556, guid: f84f7e4bc2bd6a8478f49f2e4d66c2c2, type: 3}
-    creditCost: 7
+    creditCost: 12
     firstWaveAppearance: 15
   - enemy: {fileID: 8921150292828643593, guid: 5edd34ff24940bf49998bac3074d030f, type: 3}
     creditCost: 25

@@ -4552,6 +4552,10 @@ PrefabInstance:
       propertyPath: ranged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8596963735614995625, guid: f380239ed36dbaf408cc093b9a018b7d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 373b92fb26f53294d9db7d4a4d52acc9, type: 3}
     - target: {fileID: 8722399793137010052, guid: f380239ed36dbaf408cc093b9a018b7d, type: 3}
       propertyPath: range
       value: 12

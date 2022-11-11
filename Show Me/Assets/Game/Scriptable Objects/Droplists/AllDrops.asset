@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a993ab4ebcbe1947a3876714a0a5f63, type: 3}
   m_Name: AllDrops
   m_EditorClassIdentifier: 
-  overallDropChance: 0.2
+  overallDropChance: 0.06
   drops:
   - name: All
     chance: 1
