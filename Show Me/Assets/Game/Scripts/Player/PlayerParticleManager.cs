@@ -9,6 +9,7 @@ public class PlayerParticleManager : MonoBehaviour
     [SerializeField] private ParticleSystem hitEffect;
     [SerializeField] private ParticleSystem deathEffect;
     [SerializeField] private ParticleSystem poofEffect;
+    [SerializeField] private ParticleSystem enemyHitEffect;
     [SerializeField] private AudioSource explosionSound;
 
     private void Awake()
@@ -35,6 +36,11 @@ public class PlayerParticleManager : MonoBehaviour
     {
         ParticleSystem p = Instantiate(instance.hitEffect, pos, Quaternion.identity);
         p.transform.localScale = Vector3.one * pow;
+    }
+
+    public static void EnemyHitEffect(Vector3 pos)
+    {
+        ParticleSystem p = Instantiate(instance.enemyHitEffect, pos, Quaternion.identity);
     }
 
     public static void PoofEffect(Vector3 pos)

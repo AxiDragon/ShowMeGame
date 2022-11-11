@@ -13,12 +13,6 @@ namespace Gunbloem
         {
             foreach (Collider coll in Physics.OverlapSphere(attackOrigin.position, attackRange))
             {
-                //if (coll.TryGetComponent<Health>(out var h))
-                //{
-                //    if (h == target)
-                //        target.TakeDamage(1);
-                //}
-
                 if (coll.TryGetComponent<ProtectionTargetHealth>(out var pth))
                 {
                     pth.TakeDamage(1);

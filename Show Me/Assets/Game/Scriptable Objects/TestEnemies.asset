@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e86eb8781e55804caff764e1609316c, type: 3}
+  m_Name: TestEnemies
+  m_EditorClassIdentifier: 
+  enemies:
+  - enemy: {fileID: 6377441073608006873, guid: 4173f5d81f7b81047a2906e3ea57b09b, type: 3}
+    creditCost: 5
+    firstWaveAppearance: 0
+  - enemy: {fileID: 1484691614432460598, guid: 4a6917c47e7a82b449e8ef0f0c28ac95, type: 3}
+    creditCost: 7
+    firstWaveAppearance: 7
+  - enemy: {fileID: 195165194664368556, guid: f84f7e4bc2bd6a8478f49f2e4d66c2c2, type: 3}
+    creditCost: 7
+    firstWaveAppearance: 15
+  - enemy: {fileID: 8921150292828643593, guid: 5edd34ff24940bf49998bac3074d030f, type: 3}
+    creditCost: 1
+    firstWaveAppearance: 0
+  - enemy: {fileID: 6948139692061799534, guid: 529e152deafa70f49a76f3846549f2a7, type: 3}
+    creditCost: 1
+    firstWaveAppearance: 0
+  - enemy: {fileID: 2123526304088804438, guid: e89bbc3066deaeb48a1159cdb7641200, type: 3}
+    creditCost: 1
+    firstWaveAppearance: 0

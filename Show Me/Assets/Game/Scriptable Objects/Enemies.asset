@@ -18,4 +18,16 @@ MonoBehaviour:
     firstWaveAppearance: 0
   - enemy: {fileID: 1484691614432460598, guid: 4a6917c47e7a82b449e8ef0f0c28ac95, type: 3}
     creditCost: 7
-    firstWaveAppearance: 6
+    firstWaveAppearance: 7
+  - enemy: {fileID: 195165194664368556, guid: f84f7e4bc2bd6a8478f49f2e4d66c2c2, type: 3}
+    creditCost: 7
+    firstWaveAppearance: 15
+  - enemy: {fileID: 8921150292828643593, guid: 5edd34ff24940bf49998bac3074d030f, type: 3}
+    creditCost: 25
+    firstWaveAppearance: 25
+  - enemy: {fileID: 6948139692061799534, guid: 529e152deafa70f49a76f3846549f2a7, type: 3}
+    creditCost: 25
+    firstWaveAppearance: 33
+  - enemy: {fileID: 2123526304088804438, guid: e89bbc3066deaeb48a1159cdb7641200, type: 3}
+    creditCost: 30
+    firstWaveAppearance: 40

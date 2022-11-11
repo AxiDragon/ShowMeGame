@@ -119,6 +119,8 @@ namespace Gunbloem
             gun.shootTransform = GetShootTransform(model.transform); //doesn't work quite yet either
             fighter.UpdateGun(gun);
             currentGun = gun;
+
+            ScoreKeeper.IncreaseScore(gun.power + gun.fireRate + gun.impact + gun.speed);
         }
 
         private void PlaceModelInHand(ref GameObject model)

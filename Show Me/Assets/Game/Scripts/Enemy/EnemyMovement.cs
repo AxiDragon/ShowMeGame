@@ -12,11 +12,15 @@ namespace Gunbloem
         NavMeshAgent agent;
         EnemyController controller;
         bool stunned = false;
+        float speed;
+        float angularSpeed;
 
         void Awake()
         {
             controller = GetComponent<EnemyController>();
             agent = GetComponent<NavMeshAgent>();
+            speed = agent.speed;
+            angularSpeed = agent.angularSpeed;
         }
 
         void Update()
@@ -36,7 +40,8 @@ namespace Gunbloem
         private IEnumerator StunCoroutine(float time)
         {
             stunned = true;
-            agent.enabled = false;
+            agent.speed = 0f;
+            agent.angularSpeed = 0f;
             yield return new WaitForSeconds(time);
 
             for (int i = 0; i < 30; i++)
@@ -51,7 +56,8 @@ namespace Gunbloem
             }
 
             stunned = false;
-            agent.enabled = true;
+            agent.speed = speed;
+            agent.angularSpeed = angularSpeed;
         }
     }
 }

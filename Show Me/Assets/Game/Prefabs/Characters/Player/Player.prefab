@@ -381,7 +381,7 @@ MonoBehaviour:
   minZoom: 1.5
   maxZoom: 20
   topClamp: 90
-  bottomClamp: -15
+  bottomClamp: -60
   cameraTarget: {fileID: 0}
 --- !u!114 &805861736659784775
 MonoBehaviour:
@@ -652,6 +652,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 36ac9f41-caea-4eae-9e21-efff8c54167c
     m_ActionName: Player/Camera Zoom[/Mouse/scroll/y]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fba41726-6c31-4044-a7ed-5b2908f7a154
+    m_ActionName: Player/Quit[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -689,6 +693,7 @@ MonoBehaviour:
   hitEffect: {fileID: 7221908289940487574, guid: 3e2f08400c1595d49855ad27539b9f2f, type: 3}
   deathEffect: {fileID: 4365803489355199626, guid: cd60700e0c61c6b4ab1cba1d1a28469f, type: 3}
   poofEffect: {fileID: 4365803489355199626, guid: c2ee213207a162748885434e13af86c8, type: 3}
+  enemyHitEffect: {fileID: 4365803489355199626, guid: ffb9d60a39173ac418c04fefe5ede488, type: 3}
   explosionSound: {fileID: 5313316153572184727, guid: b6eae8f54f8dca4499529aa175e58020, type: 3}
 --- !u!114 &6683824002323162707
 MonoBehaviour:

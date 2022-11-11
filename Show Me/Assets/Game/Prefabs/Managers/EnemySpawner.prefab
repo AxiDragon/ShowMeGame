@@ -49,10 +49,10 @@ MonoBehaviour:
   waveTime: 10
   waveTimeIncremental: 2
   graceTime: 2
-  waveMultiplier: 1.15
+  waveMultiplier: 1.12
   minimumSpawnRange: 20
   maximumSpawnRange: 25
-  difficultySpikeWaves: 5
-  spikeIncrease: 0.03
+  difficultySpikeWaves: 7
+  spikeIncrease: 0.02
   active: 1
   waveCount: 0

@@ -24,6 +24,7 @@ namespace Gunbloem
             Vector3 pos = GetPlantingPosition();
             pos.y -= 0.5f;
             seed.PlantSeed(pos);
+            ScoreKeeper.IncreaseScore(5);
         }
 
         public void SelectBreed(GunPart part)
@@ -56,6 +57,7 @@ namespace Gunbloem
             BreedBox box = Instantiate(breedBox, GetPlantingPosition() - Vector3.up * .5f, randomRot);
             box.SetBreedTime(time);
             box.Breed(parts);
+            ScoreKeeper.IncreaseScore(10);
         }
 
         private Vector3 GetPlantingPosition()
@@ -81,7 +83,10 @@ namespace Gunbloem
                 {
                     GunPart gp = p.HarvestGunPart();
                     if (gp != null)
+                    {
                         inv.parts.Add(gp);
+                        ScoreKeeper.IncreaseScore(15);
+                    }
                 }
 
                 if (coll.TryGetComponent<GunSeed>(out var s))
@@ -90,6 +95,7 @@ namespace Gunbloem
                     {
                         inv.AddSeed(s);
                         s.Collect();
+                        ScoreKeeper.IncreaseScore(1);
                     }
                 }
 
@@ -101,6 +107,7 @@ namespace Gunbloem
                         inv.seeds.Add(seed);
                         inv.parts.Add(g[0]);
                         inv.parts.Add(g[1]);
+                        ScoreKeeper.IncreaseScore(20);
                     }
                 }
             }

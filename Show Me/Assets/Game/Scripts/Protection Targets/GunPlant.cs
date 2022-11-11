@@ -55,7 +55,8 @@ namespace Gunbloem
 
         private void OnDestroy()
         {
-            Destroy(resultPart.gameObject);
+            if (resultPart.gameObject)
+                Destroy(resultPart.gameObject);
         }
     }
 }

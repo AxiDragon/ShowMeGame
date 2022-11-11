@@ -13,6 +13,7 @@ namespace Gunbloem
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            Destroy(gameObject, 5f);
         }
 
         private void Update()
@@ -41,7 +42,7 @@ namespace Gunbloem
                 }
             }
 
-            PlayerParticleManager.ExplosionSound(transform.position, explosionPower);
+            PlayerParticleManager.ExplosionSound(transform.position, Mathf.Clamp(explosionPower, .1f, 3f));
             Destroy(gameObject);
         }
     }

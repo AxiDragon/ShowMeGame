@@ -16,6 +16,12 @@ namespace Gunbloem
             playerHarvest = GetComponent<Harvest>();
         }
 
+        public void Escape(InputAction.CallbackContext inp)
+        {
+            if (inp.performed)
+                Application.Quit();
+        }
+
         public void InteractZ(InputAction.CallbackContext inp)
         {
             //Code for when the player presses Z

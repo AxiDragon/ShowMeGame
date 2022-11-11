@@ -60,7 +60,7 @@ namespace Gunbloem
 
                 if (spawnPos != Vector3.positiveInfinity)
                 {
-                    if (i == 0)
+                    if (i < 3)
                     {
                         SpawnEnemy(waveSpawns[i], spawnPos, true);
                     }
